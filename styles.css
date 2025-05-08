@@ -1,3 +1,4 @@
+
 /* Reset básico */
 * {
     margin: 0;
@@ -6,13 +7,20 @@
     font-family: Arial, sans-serif;
 }
 
+/* Estilos del header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #430505;
-    color: black;
+    color: rgb(0, 0, 0);
     padding: 15px 20px;
+}
+
+section {
+    background-color: #fffffb;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.76);
 }
 
 .logo {
@@ -42,7 +50,7 @@ header {
 
 .menu ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 1.2em;
     display: block;
 }
@@ -89,12 +97,6 @@ header {
     }
 }
 
-section {
-    background-color: #fffffb;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.76);
-}
-
 img {
     width: 480px;
     height: 480px;
@@ -102,24 +104,4 @@ img {
 
 .album {
     margin-bottom: 30px;
-}
-
-/* Imagen interactiva */
-.interactive-image {
-    text-align: center;
-}
-
-.interactive-image button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #430505;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    border-radius: 8px;
-}
-
-.interactive-image button:hover {
-    background-color: #6a0e0e;
 }
