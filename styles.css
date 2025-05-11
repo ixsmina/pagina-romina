@@ -1,161 +1,100 @@
 
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #faf4f0;
+  color: #333;
 }
 
-/* Estilos del header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #430505;
-    color: rgb(0, 0, 0);
-    padding: 15px 20px;
+  background-color: #520216;
+  color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
-section {
-    background-color: #fffffb;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.76);
+nav {
+  position: relative;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
 .menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-.menu ul li {
-    text-align: center;
-    padding: 15px;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.2em;
-    display: block;
-}
-
-.menu ul li a:hover {
-    background: #3e0404;
-}
-.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: none;
-  /* estilos opcionales como background, padding... */
+  text-align: center;
 }
 
-.menu.active {
+.menu.show {
   display: block;
 }
 
-
-.menu-toggle {
-    background: none;
-    border: none;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
+.menu li {
+  margin: 0.5rem 0;
 }
 
-.menu.active {
-    display: flex;
-}
-
-@media (min-width: 768px) {
-    .menu {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        width: auto;
-        background: none;
-    }
-
-    .menu ul {
-        display: flex;
-    }
-
-    .menu ul li {
-        padding: 0;
-    }
-
-    .menu ul li a {
-        padding: 10px 20px;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-}
-
-img {
-    width: 480px;
-    height: 480px;
+.menu a {
+  color: white;
+  text-decoration: none;
 }
 
 .album {
-    margin-bottom: 30px;
-}
-.album {
-  text-align: center;
-  margin: 20px;
-}
-
-.album-img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.album-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
+  padding: 2rem;
 }
 
-.album-btn span {
-  margin-top: 5px;
-  color: rgb(161, 161, 161);
-  font-family: Consolas, Courier New, monospace;
+.album img {
+  width: 200px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.album-details {
-  margin-top: 15px;
+.album-content {
+  text-align: center;
+}
+
+.album-btn {
+  background-color: #520216;
   color: white;
-  font-family: Consolas, Courier New, monospace;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.album-details a {
-  color: #8ab4f8;
-  text-decoration: underline;
-  display: block;
-  margin-top: 10px;
+.album-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.album-list li {
+  margin: 0.3rem 0;
+}
+
+.spotify-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1db954;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .hidden {
   display: none;
 }
+
