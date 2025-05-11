@@ -58,6 +58,15 @@ section {
 .menu ul li a:hover {
     background: #3e0404;
 }
+.menu {
+  display: none;
+  /* estilos opcionales como background, padding... */
+}
+
+.menu.active {
+  display: block;
+}
+
 
 .menu-toggle {
     background: none;
