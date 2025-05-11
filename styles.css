@@ -105,3 +105,48 @@ img {
 .album {
     margin-bottom: 30px;
 }
+.album {
+  text-align: center;
+  margin: 20px;
+}
+
+.album-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.album-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.album-btn span {
+  margin-top: 5px;
+  color: rgb(161, 161, 161);
+  font-family: Consolas, Courier New, monospace;
+}
+
+.album-details {
+  margin-top: 15px;
+  color: white;
+  font-family: Consolas, Courier New, monospace;
+}
+
+.album-details a {
+  color: #8ab4f8;
+  text-decoration: underline;
+  display: block;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
