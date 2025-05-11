@@ -1,15 +1,11 @@
-<script>
-  // Menú hamburguesa
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
+// Función para mostrar/ocultar las canciones del álbum
+function toggleAlbum(id) {
+  const element = document.getElementById(id);
+  element.classList.toggle('hidden');
+}
 
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
+// Función para abrir/cerrar el menú (☰)
+document.getElementById("menu-toggle").addEventListener("click", function () {
+  document.getElementById("menu").classList.toggle("show");
+});
 
-  // Mostrar detalles del álbum
-  function toggleAlbum(id) {
-    const section = document.getElementById(id);
-    section.classList.toggle('hidden');
-  }
-</script>
