@@ -14,9 +14,23 @@ header {
   text-align: center;
 }
 
+html {
+  scroll-padding-top: 100px; /* Ajusta según tu navbar */
+}
+
 nav {
   position: relative;
 }
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111; /* O el color que uses */
+  z-index: 9999;
+  padding: 1rem;
+}
+
 
 .menu-toggle {
   background: none;
@@ -98,3 +112,6 @@ nav {
   display: none;
 }
 
+main {
+  margin-top: 80px; /* Ajusta según la altura del navbar */
+}
