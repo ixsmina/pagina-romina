@@ -1,11 +1,16 @@
-// Función para mostrar/ocultar las canciones del álbum
-function toggleAlbum(id) {
-  const element = document.getElementById(id);
-  element.classList.toggle('hidden');
-}
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
 
-// Función para abrir/cerrar el menú (☰)
-document.getElementById("menu-toggle").addEventListener("click", function () {
-  document.getElementById("menu").classList.toggle("show");
+document.getElementById('next').addEventListener('click', function() {
+  changeSlide(1);
 });
 
+document.getElementById('prev').addEventListener('click', function() {
+  changeSlide(-1);
+});
+
+function changeSlide(direction) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + direction + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+}
