@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vocaloid Media</title>
+  <title>Fanpage LDR</title>
   <link rel="stylesheet" href="audi.css">
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -11,14 +11,14 @@
 <body>
 
  <header>
-    <div class="logo">VOCALOID MEDIA</div>
+    <div class="logo">Lana Del Rey</div>
     <nav class="menu">
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="audi.html"><i class="fas fa-music"></i> MP3</a></li>
-        <li><a href="vid.html"><i class="fas fa-film"></i> MP4</a></li>
-        <li><a href="gal.html"><i class="fas fa-image"></i> Imágenes</a></li>
-        <li><a href="red.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+        <li><a href="audi.html"><i class="fas fa-music"></i> Albums</a></li>
+        <li><a href="vid.html"><i class="fas fa-film"></i> Unreleased</a></li>
+        <li><a href="gal.html"><i class="fas fa-image"></i> Galería</a></li>
+        <li><a href="red.html"><i class="fas fa-envelope"></i> Plataformas</a></li>
       </ul>
       <div class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
@@ -27,25 +27,35 @@
   </header>
 
         </form>
-            <h1>DESCARGAR Y REPRODUCIR AUDIOS MP3:</h1> <br>
-            <p>Canción: A Single Red Leaf</p><br>
-                    <p>Musica y Letra: Kurousa-P/WhiteFlame</p><br>
-                    <p>Vocaloid: Megurine Luka</p><br>
-                    <p>Enlace de cancion original:</p><br>
-                    <li><a href="http://www.nicovideo.jp/watch/sm7155972" target="_blank">『巡音ルカ』紅一葉『オリジナル曲・PV付』</a></li>
-            <section>
-                <audio controls>
-                    <source src="mp3/A Single Red Leaf.mp3" type="audio/mpeg">
-                </audio>
-                <br>
-                <a href="mp3/A Single Red Leaf.mp3" download class="download-btn">Descargar Cancion</a>
-                <br>
-                <audio controls>
-                <source src="mp3/A Single Red Leaf(off vocal).mp3" type="audio/mpeg">
-                </audio>
-                <br>
-                <a href="mp3/A Single Red Leaf(off vocal).mp3" download class="download-btn">Descargar Instrumental</a>
-            </section>
+            <h1>Descubre los albums y canciones de Lana Del Rey</h1> <br>
+          <p>Explora sus álbumes y escucha sus canciones.</p><br>
+    <img src="images/lana.jpg" alt="Lana del Rey">
+</section>
+
+<main>
+    <section id="album">
+    <section class="album">
+    <img src="images/born.jpg" alt="Born to die" class="album-img">
+      <div class="album-content">
+        <h2>Born to Die (2012)</h2>
+        <button class="album-btn" onclick="toggleAlbum('born')">Ver canciones</button>
+        <ul class="album-list hidden" id="born">
+          <li>Born to Die</li>
+          <li>Off to the Races</li>
+          <li>Blue Jeans</li>
+          <li>Video Games</li>
+          <li>Diet Mountain Dew</li>
+          <li>National Anthem</li>
+          <li>Dark Paradise</li>
+          <li>Radio</li>
+          <li>Carmen</li>
+          <li>Million Dollar Man</li>
+          <li>This Is What Makes Us Girls</li>
+        </ul>
+       <a href="https://open.spotify.com/intl-es/album/4vXt6IpMcSnqonljffWlMI?si=uak6SOWBThyo4PL1m8dyVA" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
+      </div>
+    </section>
+  </main>
             <br>
             <p>Canción: Break It Break It</p><br>
                     <p>Musica y Letra: E.L.V.N</p><br>
