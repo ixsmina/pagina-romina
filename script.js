@@ -15,4 +15,14 @@ const menuToggle = document.getElementById('menuToggle');
 const menu = document.querySelector('.menu ul');
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('active');
+function toggleAlbum(id) {
+  const list = document.getElementById(id);
+  if (list) {
+    list.classList.toggle("hidden");
+  }
+}
+
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.getElementById("menu").classList.toggle("show");
 });
+
