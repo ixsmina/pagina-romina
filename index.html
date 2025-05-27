@@ -16,7 +16,7 @@
       <ul>
         <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="audi.html"><i class="fas fa-music"></i> Albums</a></li>
-        <li><a href="vid.html"><i class="fas fa-film"></i> Unreeleased</a></li>
+        <li><a href="vid.html"><i class="fas fa-film"></i> Unreleased</a></li>
         <li><a href="gal.html"><i class="fas fa-image"></i> Galería</a></li>
         <li><a href="red.html"><i class="fas fa-envelope"></i> Plataformas</a></li>
       </ul>
@@ -27,17 +27,17 @@
   </header>
 
   <section id="inicio" class="slider">
-    <div class="slide active">
+    <div class="slide active" style="background-image: url('images/sli1.jpg');">
       <h2>Lana Del Rey</h2>
-      <h2>Elizabeth Woolridge Grant es una cantautora estadounidense. Su música es conocida por su melancólica exploración del glamour y el romance.</h2>
+      <p>Elizabeth Woolridge Grant es una cantautora estadounidense. Su música es conocida por su melancólica exploración del glamour y el romance.</p>
     </div>
-    <div class="slide">
-      <h2>Aquí podras enconrtar un poco de su carrera.</h2>
-      <h2>Albums, canciones ineditas, imagenes, etc.</h2>
+    <div class="slide" style="background-image: url('images/sli2.jpg');">
+      <h2>Descubre su carrera</h2>
+      <p>Albums, canciones inéditas, imágenes, rarezas y más.</p>
     </div>
-    <div class="slide">
-      <h2>Con amor para Lana.</h2>
-      <h2>Paradise</h2>
+    <div class="slide" style="background-image: url('images/sli3.jpg');">
+      <h2>Con amor para Lana</h2>
+      <p>Un tributo visual y sonoro a una artista única.</p>
     </div>
     <div class="controls">
       <button id="prev"><i class="fas fa-chevron-left"></i></button>
@@ -51,23 +51,15 @@
         <h3>Secciones</h3>
         <p>Inicio</p>
         <p>Albums</p>
-        <p>unreleased </p>
-        <p>Galeria</p>
+        <p>Unreleased</p>
+        <p>Galería</p>
       </div>
       <div>
         <h3>Dedicatoria:</h3>
         <p>Con cariño a Elizabeth Woolridge Grant</p>
       </div>
+    </div>
   </footer>
-  
+
 </body>
 </html>
-
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const menu = document.querySelector('.menu ul');
-
-    menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  </script>
