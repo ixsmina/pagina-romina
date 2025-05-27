@@ -1,167 +1,88 @@
-body {
-  background-color: #85eff7;
-  font-family: 'Arial', sans-serif;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Fuente y fondo general */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Encabezado */
 header {
-  background-color: #520216;
-  color: white;
-  padding: 10px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  align-items: center;
+  background-color: #520216;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.menu-toggle {
+header h1 {
   font-size: 1.5rem;
-  color: white;
+}
+
+/* Botón menú hamburguesa */
+#menu-toggle {
   background: none;
   border: none;
-  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.menu ul {
-  display: flex;
+/* Menú de navegación */
+nav ul {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
+  display: flex;
+  gap: 15px;
 }
 
-.menu li {
-  margin: 0 10px;
-}
-
-.menu a {
+nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-.menu a.active {
-  border-bottom: 2px solid white;
+nav.hidden {
+  display: none;
 }
 
-.titulo-albumes {
-  text-align: center;
-  font-size: 3rem;
-  margin-top: 30px;
-  color: #520216;
-  text-shadow: 0 0 5px #ffffffaa;
+/* Para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
 }
 
+/* Álbum */
 .album {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 30px auto;
-  max-width: 900px;
-  background: #ffffffcc;
-  border-radius: 24px;
-  box-shadow: 0 0 20px #52021688;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-.album-img {
-  width: 240px;
-  height: 240px;
-  border-radius: 20px;
-  margin: 20px;
-  object-fit: cover;
-  box-shadow: 0 0 15px #ffffffaa;
-  border: 2px solid #fff;
-  transition: transform 0.3s ease;
-}
-
-.album-img:hover {
-  transform: scale(1.03);
-}
-
-.album-content {
-  flex: 1;
+  margin-top: 30px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #52021655;
 }
 
-.album-content h2 {
-  margin-top: 0;
-  color: #520216;
-  font-size: 1.6rem;
-  text-shadow: 0 0 3px #fff;
+.album h2 {
+  cursor: pointer;
+  color: #ffb3c6;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.album-list {
-  list-style: none;
+.album ul {
+  list-style: disc;
   padding-left: 20px;
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #2e2e2e;
 }
 
 .hidden {
   display: none;
-}
-
-.album-btn, .spotify-btn {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 8px 16px;
-  background-color: #520216;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 0 10px #ffffffaa;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.album-btn:hover, .spotify-btn:hover {
-  background-color: #3e0112;
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .album {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .album-img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #520216;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
 }
