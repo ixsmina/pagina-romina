@@ -1,3 +1,4 @@
+// Carrusel
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
@@ -13,8 +14,19 @@ function changeSlide(direction) {
 // Menú móvil
 const menuToggle = document.getElementById('menuToggle');
 const menu = document.querySelector('.menu ul');
+
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('active');
+});
+
+// Si esto se necesita para otra parte del sitio, se deja comentado:
+// function toggleAlbum(id) {
+//   const list = document.getElementById(id);
+//   if (list) {
+//     list.classList.toggle("hidden");
+//   }
+// }
+
 function toggleAlbum(id) {
   const list = document.getElementById(id);
   if (list) {
