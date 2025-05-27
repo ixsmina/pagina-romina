@@ -7,8 +7,8 @@ body {
 
 .gallery-section {
   padding: 2rem;
-  background-color: #fff;
-  color: #333;
+  background-color: transparent; /* quitar fondo blanco */
+  color: #fff;
 }
 
 .gallery-title {
