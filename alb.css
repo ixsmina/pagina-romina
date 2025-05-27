@@ -1,6 +1,3 @@
-body {
-  background-color: #85eff7;
-  font-family: 'Arial', sans-serif;
 /* Reset básico */
 * {
   margin: 0;
@@ -11,8 +8,6 @@ body {
 /* Fuente y fondo general */
 body {
   font-family: 'Georgia', serif;
-  background-color: #fdfcf7;
-  color: #333;
   background-color: #0a0a0a;
   color: #fff;
   line-height: 1.6;
@@ -21,100 +16,44 @@ body {
 
 /* Encabezado */
 header {
-  background-color: #520216;
-  color: white;
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: #780021;
-  padding: 1rem 2rem;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  z-index: 1000;
   align-items: center;
   background-color: #520216;
   padding: 10px 20px;
   border-radius: 10px;
 }
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #fdfcf7;
-  text-shadow: 0 0 10px #fff;
 header h1 {
   font-size: 1.5rem;
 }
 
-.menu {
-  position: relative;
-.menu-toggle {
-  font-size: 1.5rem;
-  color: white;
 /* Botón menú hamburguesa */
 #menu-toggle {
   background: none;
   border: none;
-  display: none;
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.menu ul {
-  display: flex;
 /* Menú de navegación */
 nav ul {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.menu li {
-  margin: 0 10px;
   display: flex;
-  gap: 1.5rem;
   gap: 15px;
 }
 
-.menu a {
-  color: #fdfcf7;
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
 }
 
-.menu a:hover {
-  color: #f4b6c2;
-}
-
-.menu-toggle {
-.menu a.active {
-  border-bottom: 2px solid white;
 nav.hidden {
   display: none;
-  cursor: pointer;
-  color: #fff;
-  font-size: 1.5rem;
 }
 
-/* Slider (sólo en index, ignora en otras páginas) */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  overflow: hidden;
-.titulo-albumes {
-  text-align: center;
-  font-size: 3rem;
-  margin-top: 30px;
-  color: #520216;
-  text-shadow: 0 0 5px #ffffffaa;
 /* Para pantallas pequeñas (responsive) */
 @media (max-width: 768px) {
   nav ul {
@@ -123,85 +62,15 @@ nav.hidden {
   }
 }
 
-.slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
 /* Álbum */
 .album {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease;
-  padding: 2rem;
-  flex-wrap: wrap;
-  margin: 30px auto;
-  max-width: 900px;
-  background: #ffffffcc;
-  border-radius: 24px;
-  box-shadow: 0 0 20px #52021688;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-.album-img {
-  width: 240px;
-  height: 240px;
-  border-radius: 20px;
-  margin: 20px;
-  object-fit: cover;
-  box-shadow: 0 0 15px #ffffffaa;
-  border: 2px solid #fff;
-  transition: transform 0.3s ease;
-}
-
-.slide::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-.album-img:hover {
-  transform: scale(1.03);
-}
-
-.slide h2,
-.slide p {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1rem;
-.album-content {
-  flex: 1;
   margin-top: 30px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: #1a1a1a;
   border-radius: 10px;
   box-shadow: 0 0 10px #52021655;
 }
 
-.slide h2 {
-  font-size: 2.5rem;
-  color: #fdfcf7;
-  text-shadow: 0 0 10px #780021;
-.album-content h2 {
-  margin-top: 0;
-  color: #520216;
-  font-size: 1.6rem;
-  text-shadow: 0 0 3px #fff;
 .album h2 {
   cursor: pointer;
   color: #ffb3c6;
@@ -209,124 +78,11 @@ nav.hidden {
   margin-bottom: 10px;
 }
 
-.slide p {
-  font-size: 1.2rem;
-  color: #f0e8df;
-.album-list {
-  list-style: none;
 .album ul {
   list-style: disc;
   padding-left: 20px;
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #2e2e2e;
 }
 
-/* Botones del slider */
-.controls {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  transform: translateY(-50%);
-  z-index: 2;
 .hidden {
   display: none;
-}
-
-.controls button {
-  background: rgba(255, 255, 255, 0.8);
-.album-btn, .spotify-btn {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 8px 16px;
-  background-color: #520216;
-  color: white;
-  border: none;
-  color: #780021;
-  border-radius: 50%;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: background 0.3s;
-}
-
-.controls button:hover {
-  background: #780021;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 0 10px #ffffffaa;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-/* Footer */
-footer {
-  background: #520216;
-  color: #fff;
-  padding: 2rem;
-.album-btn:hover, .spotify-btn:hover {
-  background-color: #3e0112;
-  transform: scale(1.05);
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-}
-@media (max-width: 768px) {
-  .album {
-    flex-direction: column;
-    align-items: center;
-  }
-
-footer h3 {
-  margin-bottom: 0.5rem;
-  color: #fdfcf7;
-}
-  .album-img {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-  }
-
-footer p {
-  margin: 0.3rem 0;
-}
-  .menu-toggle {
-    display: block;
-  }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-  .menu {
-    display: none;
-    background: #780021;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background-color: #520216;
-    width: 100%;
-    padding: 1rem;
-    padding: 10px;
-  }
-
-  .menu ul.active {
-  .menu.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  .menu li {
-    margin: 10px 0;
-  }
 }
