@@ -1,0 +1,88 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente y fondo general */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Encabezado */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #520216;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+/* Botón menú hamburguesa */
+#menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Menú de navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav.hidden {
+  display: none;
+}
+
+/* Para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
+
+/* Álbum */
+.album {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #52021655;
+}
+
+.album h2 {
+  cursor: pointer;
+  color: #ffb3c6;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.album ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.hidden {
+  display: none;
+}
