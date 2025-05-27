@@ -1,39 +1,112 @@
 body {
   background-color: #85eff7;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #520216;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  display: none;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a.active {
+  border-bottom: 2px solid white;
 }
 
 .titulo-albumes {
   text-align: center;
-  font-size: 2.5rem;
-  margin-top: 20px;
+  font-size: 3rem;
+  margin-top: 30px;
+  color: #520216;
+  text-shadow: 0 0 5px #ffffffaa;
 }
 
 .album {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px auto;
+  margin: 30px auto;
   max-width: 900px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: #ffffffcc;
+  border-radius: 24px;
+  box-shadow: 0 0 20px #52021688;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .album-img {
-  width: 300px;
-  height: auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  margin: 20px;
   object-fit: cover;
+  box-shadow: 0 0 15px #ffffffaa;
+  border: 2px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.album-img:hover {
+  transform: scale(1.03);
 }
 
 .album-content {
   flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-content h2 {
+  margin-top: 0;
+  color: #520216;
+  font-size: 1.6rem;
+  text-shadow: 0 0 3px #fff;
 }
 
 .album-list {
   list-style: none;
-  padding-left: 0;
+  padding-left: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #2e2e2e;
 }
 
 .hidden {
@@ -42,32 +115,53 @@ body {
 
 .album-btn, .spotify-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
+  margin: 10px 10px 0 0;
+  padding: 8px 16px;
   background-color: #520216;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ffffffaa;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .album-btn:hover, .spotify-btn:hover {
   background-color: #3e0112;
+  transform: scale(1.05);
 }
 
-.menu {
-  display: none;
-}
+@media (max-width: 768px) {
+  .album {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.menu.show {
-  display: block;
-}
+  .album-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+  }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  margin: 10px;
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #520216;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
 }
