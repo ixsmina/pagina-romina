@@ -1,115 +1,129 @@
-// Menú hamburguesa en móvil (EXISTENTE, LO MANTENEMOS)
-const menuToggle = document.getElementById('menuToggle');
-const menuList = document.querySelector('.menu ul');
+// Menú hamburguesa en móvil (CÓDIGO AJUSTADO PARA TU HTML)
+const menuToggle = document.getElementById('menuToggle'); // Asegúrate que el ID sea 'menuToggle'
+const menuList = document.querySelector('.menu ul'); // Selecciona la lista ul
 
 if (menuToggle && menuList) {
     menuToggle.addEventListener('click', () => {
-        menuList.classList.toggle('show');
-        // Opcional: Cambiar el icono del menú hamburguesa
+        menuList.classList.toggle('show'); // Alterna la clase 'show'
+
+        // Cambiar el icono de la hamburguesa
         const icon = menuToggle.querySelector('i');
-        if (menuList.classList.contains('show')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times'); // Cambia a una 'X'
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars'); // Vuelve a la hamburguesa
+        if (icon) {
+            if (menuList.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // Icono de cerrar (X)
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars'); // Icono de hamburguesa
+            }
         }
     });
 }
 
+
 // Lightbox funcionalidad y Slider
-const galleryItems = document.querySelectorAll('.gallery-item'); // Selecciona los .gallery-item completos
+const galleryItems = document.querySelectorAll('.gallery-item'); // Selecciona TODOS los .gallery-item
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxCaption = document.getElementById('lightbox-caption');
 const closeLightboxBtn = document.querySelector('.lightbox .close');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn'); // Referencia a la flecha anterior
+const nextBtn = document.getElementById('nextBtn'); // Referencia a la flecha siguiente
 const body = document.body; // Para controlar el scroll del body
 
-let currentImageIndex = 0;
-let imagesData = []; // Guardará las URLs y captions de todas las imágenes
+let currentImageIndex = 0; // Para llevar el registro de la imagen actual
+let imagesData = []; // Para almacenar todas las imágenes y sus datos
 
-// Prepara los datos de las imágenes al cargar la página
-galleryItems.forEach((item, index) => {
+// 1. Recopilar datos de todas las imágenes de la galería al cargar
+galleryItems.forEach((item) => {
     const img = item.querySelector('img');
-    const caption = item.querySelector('.caption');
-    if (img && caption) {
+    const captionElement = item.querySelector('.caption');
+    if (img) {
         imagesData.push({
             src: img.src,
             alt: img.alt,
-            caption: caption.textContent
+            // Si el captionElement existe, usa su texto, de lo contrario, usa el alt de la imagen como fallback
+            caption: captionElement ? captionElement.textContent : img.alt
         });
     }
 });
 
-// Función para mostrar una imagen en el lightbox
+// 2. Función para mostrar una imagen específica en el lightbox
 function showImageInLightbox(index) {
-    if (index >= 0 && index < imagesData.length) {
-        currentImageIndex = index;
-        lightboxImg.src = imagesData[currentImageIndex].src;
-        lightboxImg.alt = imagesData[currentImageIndex].alt;
-        lightboxCaption.textContent = imagesData[currentImageIndex].caption;
-
-        // Ocultar/Mostrar flechas si estamos en el principio/final
-        prevBtn.style.display = (currentImageIndex === 0) ? 'none' : 'block';
-        nextBtn.style.display = (currentImageIndex === imagesData.length - 1) ? 'none' : 'block';
+    if (imagesData.length === 0) { // Si no hay imágenes, no hagas nada
+        console.warn("No se encontraron imágenes en la galería.");
+        return;
     }
+
+    // Asegurarse de que el índice esté dentro de los límites
+    if (index < 0) {
+        currentImageIndex = imagesData.length - 1; // Ir al final si se presiona 'anterior' en la primera
+    } else if (index >= imagesData.length) {
+        currentImageIndex = 0; // Ir al principio si se presiona 'siguiente' en la última
+    } else {
+        currentImageIndex = index;
+    }
+
+    const imageData = imagesData[currentImageIndex];
+    lightboxImg.src = imageData.src;
+    lightboxImg.alt = imageData.alt;
+    lightboxCaption.textContent = imageData.caption;
+
+    // Mostrar/ocultar flechas (opcional, si quieres que no se "ciclen")
+    // prevBtn.style.display = (currentImageIndex === 0) ? 'none' : 'block';
+    // nextBtn.style.display = (currentImageIndex === imagesData.length - 1) ? 'none' : 'block';
 }
 
-// Abrir lightbox al hacer clic en una imagen de la galería
+// 3. Abrir lightbox al hacer clic en una imagen de la galería
 galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
+        lightbox.style.display = 'flex'; // Muestra el lightbox
         body.style.overflow = 'hidden'; // Evita el scroll del fondo
-        showImageInLightbox(index); // Muestra la imagen clicada
+        showImageInLightbox(index); // Carga la imagen clicada
     });
 });
 
-// Cerrar al hacer clic en la "X"
+// 4. Cerrar lightbox al hacer clic en la "X"
 closeLightboxBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
+    lightbox.style.display = 'none'; // Oculta el lightbox
     body.style.overflow = ''; // Restaura el scroll del fondo
 });
 
-// Cerrar si se hace clic fuera de la imagen (en el fondo oscuro)
+// 5. Cerrar lightbox si se hace clic fuera de la imagen (en el fondo oscuro)
 lightbox.addEventListener('click', (e) => {
-    // Si el clic fue en el fondo oscuro del lightbox, no en la imagen o flechas
-    if (e.target === lightbox || e.target === closeLightboxBtn) {
+    // Si el clic fue directamente en el contenedor del lightbox y no en sus hijos
+    if (e.target === lightbox) {
         lightbox.style.display = 'none';
         body.style.overflow = '';
     }
 });
 
-// Navegación con flechas
-prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evita que el clic en la flecha cierre el lightbox
-    showImageInLightbox(currentImageIndex - 1);
-});
+// 6. Navegación con flechas del carrusel
+if (prevBtn && nextBtn) { // Asegúrate de que los botones existan antes de añadir listeners
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic en la flecha cierre el lightbox
+        showImageInLightbox(currentImageIndex - 1);
+    });
 
-nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Evita que el clic en la flecha cierre el lightbox
-    showImageInLightbox(currentImageIndex + 1);
-});
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el clic en la flecha cierre el lightbox
+        showImageInLightbox(currentImageIndex + 1);
+    });
+} else {
+    console.warn("Botones de navegación (prev/next) no encontrados. Asegúrate de que sus IDs sean 'prevBtn' y 'nextBtn' en el HTML.");
+}
 
-// Navegación con teclado (flechas izquierda/derecha)
+
+// 7. Navegación con teclado (flechas izquierda/derecha y Escape)
 document.addEventListener('keydown', (e) => {
     if (lightbox.style.display === 'flex') { // Solo si el lightbox está abierto
         if (e.key === 'ArrowLeft') {
             showImageInLightbox(currentImageIndex - 1);
         } else if (e.key === 'ArrowRight') {
             showImageInLightbox(currentImageIndex + 1);
-        } else if (e.key === 'Escape') { // Cerrar con Escape
+        } else if (e.key === 'Escape') {
             lightbox.style.display = 'none';
             body.style.overflow = '';
         }
     }
 });
-
-// Manejo del menú hamburguesa (Tu código existente lo hace)
-// NOTA: Tu HTML tiene un div.menu-toggle dentro del nav.menu.
-// Y tu JS lo busca por id="menuToggle" que está dentro de .menu.
-// Tu CSS tiene .menu-toggle display: none; y .menu ul.hidden/show.
-// Asegúrate de que este JS se sincronice bien con tu CSS de menú.
-// El código que te di arriba para el menú hamburguesa es genérico.
-// Si ya tienes uno funcionando en otra página, úsalo.
