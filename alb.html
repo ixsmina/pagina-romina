@@ -1,251 +1,305 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Albums - LDR </title>
-  <link rel="stylesheet" href="alb.css"/>
-  <script defer src="alb.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Albums - LDR</title>
+    <link rel="stylesheet" href="alb.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body bgcolor="#85eff7">
-
-<header>
-  <div class="logo">Lana Del Rey</div>
-  <button class="menu-toggle" id="menu-toggle">☰</button>
-  <nav class="menu" id="menu">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="alb.html" class="active">Albums</a></li>
-      <li><a href="unre.html">Unreleased</a></li>
-      <li><a href="gal.html">Galería</a></li>
-      <li><a href="pla.html">Plataformas</a></li>
-    </ul>
-  </nav>
+<body> <header>
+    <div class="logo">Lana Del Rey</div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="alb.html" class="active">Albums</a></li>
+            <li><a href="unre.html">Unreleased</a></li>
+            <li><a href="gal.html">Galería</a></li>
+            <li><a href="pla.html">Plataformas</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main>
-  <h1 class="titulo-albumes">Discografía</h1>
+    <h1 class="titulo-albumes">Discografía</h1>
 
-  <!-- Álbum: Born to Die -->
- <main>
-    <section id="album">
+    <div id="lightbox" class="lightbox-container hidden">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="#" alt="Imagen ampliada">
+    </div>
+
     <section class="album">
-    <img src="images/born.jpg" alt="Born to die" class="album-img">
-      <div class="album-content">
-        <h2>Born to Die (2012)</h2>
-        <button class="album-btn" onclick="toggleAlbum('born')">Ver canciones</button>
-        <ul class="album-list hidden" id="born">
-          <li>Born to Die</li>
-          <li>Off to the Races</li>
-          <li>Blue Jeans</li>
-          <li>Video Games</li>
-          <li>Diet Mountain Dew</li>
-          <li>National Anthem</li>
-          <li>Dark Paradise</li>
-          <li>Radio</li>
-          <li>Carmen</li>
-          <li>Million Dollar Man</li>
-          <li>This Is What Makes Us Girls</li>
-        </ul>
-       <a href="https://open.spotify.com/intl-es/album/4vXt6IpMcSnqonljffWlMI?si=uak6SOWBThyo4PL1m8dyVA" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-      </div>
+        <div class="album-image-container">
+            <img src="images/born.jpg" alt="Born to Die" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Born to Die (2012)</h2>
+            <button class="album-btn" onclick="toggleAlbum('born')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="born">
+                <li>Born to Die</li>
+                <li>Off to the Races</li>
+                <li>Blue Jeans</li>
+                <li>Video Games</li>
+                <li>Diet Mountain Dew</li>
+                <li>National Anthem</li>
+                <li>Dark Paradise</li>
+                <li>Radio</li>
+                <li>Carmen</li>
+                <li>Million Dollar Man</li>
+                <li>This Is What Makes Us Girls</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/4vXt6IpMcSnqonljffWlMI?si=uak6SOWBThyo4PL1m8dyVA" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
     </section>
-  </main>
-
-   <section class="album">
-  <img src="images/honeymoon.jpg" alt="Honeymoon" class="album-img">
-  <div class="album-content">
-    <h2>Honeymoon (2015)</h2>
-    <button class="album-btn" onclick="toggleAlbum('honeymoon')">Ver canciones</button>
-    <ul class="album-list hidden" id="honeymoon">
-      <li>Honeymoon</li>
-      <li>Music to Watch Boys To</li>
-      <li>Terrence Loves You</li>
-      <li>God Knows I Tried</li>
-      <li>High by the Beach</li>
-      <li>Freak</li>
-      <li>Art Deco</li>
-      <li>Burnt Norton (Interlude)</li>
-      <li>Religion</li>
-      <li>Salvatore</li>
-      <li>The Blackest Day</li>
-      <li>24</li>
-      <li>Swan Song</li>
-      <li>Don’t Let Me Be Misunderstood</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/2DpEBrjCur1ythIZ10gJWw?si=gAkJkJ22TuqLDppDYzJ5ug" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
 
     <section class="album">
-  <img src="images/ultra.jpg" alt="Ultraviolence" class="album-img">
-  <div class="album-content">
-    <h2>Ultraviolence (2014)</h2>
-    <button class="album-btn" onclick="toggleAlbum('ultraviolence')">Ver canciones</button>
-    <ul class="album-list hidden" id="ultraviolence">
-      <li>Cruel World</li>
-      <li>Ultraviolence</li>
-      <li>Shades of Cool</li>
-      <li>Brooklyn Baby</li>
-      <li>West Coast</li>
-      <li>Sad Girl</li>
-      <li>Pretty When You Cry</li>
-      <li>Money Power Glory</li>
-      <li>Fucked My Way Up to the Top</li>
-      <li>Old Money</li>
-      <li>The Other Woman</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/2e3doCyb0qn2JeKLsh2Xbo?si=QT_OjXHKTfymeCg3MoXnIQ" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
-
-   <section class="album">
-  <img src="images/did.jpg" alt="Did You Know That There´s a Tunel Under The ocean Blvd" class="album-img">
-  <div class="album-content">
-    <h2>Did You Know That There´s a Tunel Under The Ocean Blvd (2023)</h2>
-    <button class="album-btn" onclick="toggleAlbum('Did You Know That There´s a Tunel Under The ocean Blvd')">Ver canciones</button>
-    <ul class="album-list hidden" id="Did You Know That There´s a Tunel Under The ocean Blvd">
-      <li>The Grants</li>
-      <li>Did You Know That There’s a Tunnel Under Ocean Blvd</li>
-      <li>Sweet</li>
-      <li>A&W</li>
-      <li>Judah Smith Interlude</li>
-      <li>Candy Necklace (feat. Jon Batiste)</li>
-      <li>Jon Batiste Interlude</li>
-      <li>Kintsugi</li>
-      <li>Fingertips</li>
-      <li>Paris, Texas (feat. SYML)</li>
-      <li>Grandfather please stand on the shoulders of my father while he’s deep-sea fishing</li>
-      <li>Let the Light In (feat. Father John Misty)</li>
-      <li>Margaret (feat. Bleachers)</li>
-      <li>Fishtail</li>
-      <li>Peppers (feat. Tommy Genesis)</li>
-      <li>Taco Truck x VB</li>
-    </ul>
-    <a href="https://open.spotify.com/album/5HOHne1wzItQlIYmLXLYfZ" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
-
-   <section class="album">
-  <img src="images/lust.jpg" alt="Lust For Life" class="album-img">
-  <div class="album-content">
-    <h2>Lust for Life (2017)</h2>
-    <button class="album-btn" onclick="toggleAlbum('lustforlife')">Ver canciones</button>
-    <ul class="album-list hidden" id="lustforlife">
-      <li>Love</li>
-      <li>Lust for Life (feat. The Weeknd)</li>
-      <li>13 Beaches</li>
-      <li>Cherry</li>
-      <li>White Mustang</li>
-      <li>Summer Bummer (feat. A$AP Rocky & Playboi Carti)</li>
-      <li>Groupie Love (feat. A$AP Rocky)</li>
-      <li>In My Feelings</li>
-      <li>Coachella – Woodstock In My Mind</li>
-      <li>God Bless America – And All the Beautiful Women In It</li>
-      <li>When the World Was at War We Kept Dancing</li>
-      <li>Beautiful People Beautiful Problems (feat. Stevie Nicks)</li>
-      <li>Tomorrow Never Came (feat. Sean Ono Lennon)</li>
-      <li>Heroin</li>
-      <li>Change</li>
-      <li>Get Free</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/7xYiTrbTL57QO0bb4hXIKo?si=NEBiHe9bQiaHDtQbwnGsuw" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
+        <div class="album-image-container">
+            <img src="images/honeymoon.jpg" alt="Honeymoon" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Honeymoon (2015)</h2>
+            <button class="album-btn" onclick="toggleAlbum('honeymoon')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="honeymoon">
+                <li>Honeymoon</li>
+                <li>Music to Watch Boys To</li>
+                <li>Terrence Loves You</li>
+                <li>God Knows I Tried</li>
+                <li>High by the Beach</li>
+                <li>Freak</li>
+                <li>Art Deco</li>
+                <li>Burnt Norton (Interlude)</li>
+                <li>Religion</li>
+                <li>Salvatore</li>
+                <li>The Blackest Day</li>
+                <li>24</li>
+                <li>Swan Song</li>
+                <li>Don’t Let Me Be Misunderstood</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/2DpEBrjCur1ythIZ10gJWw?si=gAkJkJ22TuqLDppDYzJ5ug" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
 
     <section class="album">
- <img src="images/chemtrails.jpg" alt="Chemtrails Over The Country Clubs" class="album-img">
-  <div class="album-content">
-    <h2>Chemtrails Over the Country Club (2021)</h2>
-    <button class="album-btn" onclick="toggleAlbum('chemtrails')">Ver canciones</button>
-    <ul class="album-list hidden" id="chemtrails">
-      <li>White Dress</li>
-      <li>Chemtrails Over the Country Club</li>
-      <li>Tulsa Jesus Freak</li>
-      <li>Let Me Love You Like a Woman</li>
-      <li>Wild at Heart</li>
-      <li>Dark But Just a Game</li>
-      <li>Not All Who Wander Are Lost</li>
-      <li>Yosemite</li>
-      <li>Breaking Up Slowly</li>
-      <li>Dance Till We Die</li>
-      <li>For Free</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/6QeosPQpJckkW0Obir5RT8?si=rAVT-MLiSxOk8dEMkRPxog" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
-    
-     <section class="album">
-  <img src="images/blue.jpg" alt="Blue Banisters" class="album-img">
-  <div class="album-content">
-    <h2>Blue Banisters (2021)</h2>
-    <button class="album-btn" onclick="toggleAlbum('bluebanisters')">Ver canciones</button>
-    <ul class="album-list hidden" id="bluebanisters">
-      <li>Text Book</li>
-      <li>Blue Banisters</li>
-      <li>Arcadia</li>
-      <li>Interlude – The Trio</li>
-      <li>Black Bathing Suit</li>
-      <li>If You Lie Down with Me</li>
-      <li>Beautiful</li>
-      <li>Violets for Roses</li>
-      <li>Dealer</li>
-      <li>Thunder</li>
-      <li>Wildflower Wildfire</li>
-      <li>Nectar of the Gods</li>
-      <li>Living Legend</li>
-      <li>Cherry Blossom</li>
-      <li>Sweet Carolina</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/2wwCc6fcyhp1tfY3J6Javr?si=UVYmw_yBTFG7--TwAMR3Hg" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
-    
-    <section class="album">
- <img src="images/para.jpg" alt="Paradise" class="album-img">
-  <div class="album-content">
-    <h2>Paradise (2012)</h2>
-    <button class="album-btn" onclick="toggleAlbum('paradise')">Ver canciones</button>
-    <ul class="album-list hidden" id="paradise">
-      <li>Ride</li>
-      <li>American</li>
-      <li>Cola</li>
-      <li>Body Electric</li>
-      <li>Blue Velvet</li>
-      <li>Gods & Monsters</li>
-      <li>Yayo</li>
-      <li>Bel Air</li>
-    </ul>
-    <a href="https://open.spotify.com/intl-es/album/1JnjcAIKQ9TSJFVFierTB8?si=aWnnSsA5Rse1VGI7bxditQ" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
+        <div class="album-image-container">
+            <img src="images/ultra.jpg" alt="Ultraviolence" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Ultraviolence (2014)</h2>
+            <button class="album-btn" onclick="toggleAlbum('ultraviolence')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="ultraviolence">
+                <li>Cruel World</li>
+                <li>Ultraviolence</li>
+                <li>Shades of Cool</li>
+                <li>Brooklyn Baby</li>
+                <li>West Coast</li>
+                <li>Sad Girl</li>
+                <li>Pretty When You Cry</li>
+                <li>Money Power Glory</li>
+                <li>Fucked My Way Up to the Top</li>
+                <li>Old Money</li>
+                <li>The Other Woman</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/2e3doCyb0qn2JeKLsh2Xbo?si=QT_OjXHKTfymeCg3MoXnIQ" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
 
-     <section class="album">
-  <img src="images/nfrr.jpg" alt="Norman Fucking Rockwell" class="album-img">
-  <div class="album-content">
-    <h2>Norman Fucking Rockwell! (2019)</h2>
-    <button class="album-btn" onclick="toggleAlbum('nfr')">Ver canciones</button>
-    <ul class="album-list hidden" id="nfr">
-      <li>Norman fucking Rockwell</li>
-      <li>Mariners Apartment Complex</li>
-      <li>Venice Bitch</li>
-      <li>Fuck it I love you</li>
-      <li>Doin’ Time</li>
-      <li>Love song</li>
-      <li>Cinnamon Girl</li>
-      <li>How to disappear</li>
-      <li>California</li>
-      <li>The Next Best American Record</li>
-      <li>The greatest</li>
-      <li>Bartender</li>
-      <li>Happiness is a butterfly</li>
-      <li>hope is a dangerous thing for a woman like me to have – but I have it</li>
-    </ul>
-    <a href="https://open.spotify.com/album/5XpEKORZ4y6OrCZSKsi46A" target="_blank" class="spotify-btn">Escuchar en Spotify</a>
-  </div>
-</section>
-    <script src="alb.js"></script>
+    <section class="album">
+        <div class="album-image-container">
+             <img src="images/did.jpg" alt="Did You Know That There's a Tunnel Under Ocean Blvd" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Did You Know That There's a Tunnel Under Ocean Blvd (2023)</h2>
+            <button class="album-btn" onclick="toggleAlbum('didyouknow')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="didyouknow">
+                <li>The Grants</li>
+                <li>Did You Know That There’s a Tunnel Under Ocean Blvd</li>
+                <li>Sweet</li>
+                <li>A&W</li>
+                <li>Judah Smith Interlude</li>
+                <li>Candy Necklace (feat. Jon Batiste)</li>
+                <li>Jon Batiste Interlude</li>
+                <li>Kintsugi</li>
+                <li>Fingertips</li>
+                <li>Paris, Texas (feat. SYML)</li>
+                <li>Grandfather please stand on the shoulders of my father while he’s deep-sea fishing</li>
+                <li>Let the Light In (feat. Father John Misty)</li>
+                <li>Margaret (feat. Bleachers)</li>
+                <li>Fishtail</li>
+                <li>Peppers (feat. Tommy Genesis)</li>
+                <li>Taco Truck x VB</li>
+            </ul>
+            <a href="https://open.spotify.com/album/5HOHne1wzItQlIYmLXLYfZ" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
+
+    <section class="album">
+        <div class="album-image-container">
+            <img src="images/lust.jpg" alt="Lust For Life" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Lust for Life (2017)</h2>
+            <button class="album-btn" onclick="toggleAlbum('lustforlife')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="lustforlife">
+                <li>Love</li>
+                <li>Lust for Life (feat. The Weeknd)</li>
+                <li>13 Beaches</li>
+                <li>Cherry</li>
+                <li>White Mustang</li>
+                <li>Summer Bummer (feat. A$AP Rocky & Playboi Carti)</li>
+                <li>Groupie Love (feat. A$AP Rocky)</li>
+                <li>In My Feelings</li>
+                <li>Coachella – Woodstock In My Mind</li>
+                <li>God Bless America – And All the Beautiful Women In It</li>
+                <li>When the World Was at War We Kept Dancing</li>
+                <li>Beautiful People Beautiful Problems (feat. Stevie Nicks)</li>
+                <li>Tomorrow Never Came (feat. Sean Ono Lennon)</li>
+                <li>Heroin</li>
+                <li>Change</li>
+                <li>Get Free</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/7xYiTrbTL57QO0bb4hXIKo?si=NEBiHe9bQiaHDtQbwnGsuw" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
+
+    <section class="album">
+        <div class="album-image-container">
+            <img src="images/chemtrails.jpg" alt="Chemtrails Over The Country Club" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Chemtrails Over the Country Club (2021)</h2>
+            <button class="album-btn" onclick="toggleAlbum('chemtrails')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="chemtrails">
+                <li>White Dress</li>
+                <li>Chemtrails Over the Country Club</li>
+                <li>Tulsa Jesus Freak</li>
+                <li>Let Me Love You Like a Woman</li>
+                <li>Wild at Heart</li>
+                <li>Dark But Just a Game</li>
+                <li>Not All Who Wander Are Lost</li>
+                <li>Yosemite</li>
+                <li>Breaking Up Slowly</li>
+                <li>Dance Till We Die</li>
+                <li>For Free</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/6QeosPQpJckkW0Obir5RT8?si=rAVT-MLiSxOk8dEMkRPxog" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
+
+    <section class="album">
+        <div class="album-image-container">
+            <img src="images/blue.jpg" alt="Blue Banisters" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Blue Banisters (2021)</h2>
+            <button class="album-btn" onclick="toggleAlbum('bluebanisters')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="bluebanisters">
+                <li>Text Book</li>
+                <li>Blue Banisters</li>
+                <li>Arcadia</li>
+                <li>Interlude – The Trio</li>
+                <li>Black Bathing Suit</li>
+                <li>If You Lie Down with Me</li>
+                <li>Beautiful</li>
+                <li>Violets for Roses</li>
+                <li>Dealer</li>
+                <li>Thunder</li>
+                <li>Wildflower Wildfire</li>
+                <li>Nectar of the Gods</li>
+                <li>Living Legend</li>
+                <li>Cherry Blossom</li>
+                <li>Sweet Carolina</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/2wwCc6fcyhp1tfY3J6Javr?si=UVYmw_yBTFG7--TwAMR3Hg" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
+
+    <section class="album">
+        <div class="album-image-container">
+            <img src="images/para.jpg" alt="Paradise" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Paradise (2012)</h2>
+            <button class="album-btn" onclick="toggleAlbum('paradise')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="paradise">
+                <li>Ride</li>
+                <li>American</li>
+                <li>Cola</li>
+                <li>Body Electric</li>
+                <li>Blue Velvet</li>
+                <li>Gods & Monsters</li>
+                <li>Yayo</li>
+                <li>Bel Air</li>
+            </ul>
+            <a href="https://open.spotify.com/intl-es/album/1JnjcAIKQ9TSJFVFierTB8?si=aWnnSsA5Rse1VGI7bxditQ" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
+
+    <section class="album">
+        <div class="album-image-container">
+            <img src="images/nfrr.jpg" alt="Norman Fucking Rockwell" class="album-img" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="album-content">
+            <h2>Norman Fucking Rockwell! (2019)</h2>
+            <button class="album-btn" onclick="toggleAlbum('nfr')">
+                <i class="fas fa-music"></i> Ver canciones
+            </button>
+            <ul class="album-list hidden" id="nfr">
+                <li>Norman fucking Rockwell</li>
+                <li>Mariners Apartment Complex</li>
+                <li>Venice Bitch</li>
+                <li>Fuck it I love you</li>
+                <li>Doin’ Time</li>
+                <li>Love song</li>
+                <li>Cinnamon Girl</li>
+                <li>How to disappear</li>
+                <li>California</li>
+                <li>The Next Best American Record</li>
+                <li>The greatest</li>
+                <li>Bartender</li>
+                <li>Happiness is a butterfly</li>
+                <li>hope is a dangerous thing for a woman like me to have – but I have it</li>
+            </ul>
+            <a href="https://open.spotify.com/album/5XpEKORZ4y6OrCZSKsi46A" target="_blank" class="spotify-btn">
+                <i class="fab fa-spotify"></i> Escuchar en Spotify
+            </a>
+        </div>
+    </section>
 
 </main>
+
+<script src="alb.js"></script>
 </body>
 </html>
