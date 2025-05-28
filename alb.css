@@ -19,12 +19,41 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #520216;
-  padding: 10px 20px;
-  border-radius: 10px;
+  background: #780021;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-header h1 {
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fdfcf7;
+  text-shadow: 0 0 10px #fff;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: #fdfcf7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #f4b6c2;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: #fff;
   font-size: 1.5rem;
 }
 
