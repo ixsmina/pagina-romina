@@ -113,7 +113,7 @@ main {
 
 .album-image-container {
     flex: 0 0 200px; /* Ancho fijo para la imagen (no se encoge ni crece) */
-    height: 200px;   /* Alto fijo para mantener proporción cuadrada */
+    height: 200px;    /* Alto fijo para mantener proporción cuadrada */
     border-radius: 8px;
     overflow: hidden; /* Para que la imagen no se salga del borde redondeado */
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -148,7 +148,9 @@ main {
 }
 
 /* Botones */
-.album-btn, .spotify-btn {
+/* Esta regla aplica el estilo base para los botones de canciones y los de enlaces externos */
+.album-btn,
+.youtube-btn { /* Incluimos youtube-btn aquí para que herede las propiedades base */
     background-color: #780021; /* Guinda oscuro de tu header */
     color: #fdfcf7;
     border: none;
@@ -166,15 +168,18 @@ main {
     align-self: flex-start; /* Alinea los botones a la izquierda dentro de .album-content */
 }
 
-.album-btn:hover, .spotify-btn:hover {
+.album-btn:hover,
+.youtube-btn:hover { /* También para el hover de youtube-btn */
     background-color: #a0002d; /* Guinda más claro al pasar el mouse */
     transform: translateY(-2px); /* Pequeño efecto de elevación */
 }
 
-.album-btn i, .spotify-btn i {
+.album-btn i,
+.youtube-btn i { /* Estilo para los iconos de ambos tipos de botones */
     font-size: 1.1em; /* Tamaño del icono */
 }
 
+/* Estilos específicos para el botón de Spotify (si aún lo usas en otros lugares) */
 .spotify-btn {
     background-color: #1DB954; /* Verde de Spotify */
     margin-top: 10px; /* Espacio adicional si es necesario */
@@ -182,6 +187,16 @@ main {
 
 .spotify-btn:hover {
     background-color: #1aa34a; /* Verde más oscuro de Spotify */
+}
+
+/* Estilos específicos para el botón de YouTube */
+.youtube-btn {
+    background-color: #FF0000; /* Rojo de YouTube */
+    /* No es necesario margin-top aquí si ya lo hereda de album-btn y es adecuado */
+}
+
+.youtube-btn:hover {
+    background-color: #CC0000; /* Rojo más oscuro de YouTube */
 }
 
 /* Lista de canciones */
@@ -355,7 +370,8 @@ main {
         font-size: 1.6rem;
     }
 
-    .album-btn, .spotify-btn {
+    /* Ajuste para que los botones mantengan su estilo y sean responsivos */
+    .album-btn, .spotify-btn, .youtube-btn { /* Incluimos youtube-btn aquí */
         width: 80%; /* Hacer botones más anchos para fácil toque */
         max-width: 300px; /* Pero no excesivamente anchos */
         justify-content: center; /* Centrar contenido del botón (icono + texto) */
@@ -382,7 +398,7 @@ main {
     .album-content h2 {
         font-size: 1.4rem;
     }
-    .album-btn, .spotify-btn {
+    .album-btn, .spotify-btn, .youtube-btn { /* Incluimos youtube-btn aquí también */
         width: 90%;
     }
     .lightbox-close {
