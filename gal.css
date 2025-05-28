@@ -64,7 +64,7 @@ body {
 
 /* Lightbox */
 .lightbox {
-    display: none; /* Inicialmente oculto por JS */
+    display: none; /* ¡Esta es la línea que debe quedar! El JS la cambia a flex. */
     position: fixed; /* Ocupa toda la ventana */
     z-index: 99;
     top: 0;
@@ -72,8 +72,8 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.9);
-    display: flex; /* Para centrar contenido */
-    justify-content: center;
+    /* display: flex; <-- ¡ESTA LÍNEA SE ELIMINÓ! */
+    justify-content: center; /* Estas propiedades de flexbox se aplicarán cuando el JS ponga display: flex; */
     align-items: center;
     flex-direction: column; /* La imagen y caption se apilan */
 }
