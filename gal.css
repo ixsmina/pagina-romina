@@ -64,27 +64,27 @@ body {
 
 /* Lightbox */
 .lightbox {
-    display: none;
-    position: fixed;
+    display: none; /* Inicialmente oculto por JS */
+    position: fixed; /* Ocupa toda la ventana */
     z-index: 99;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.9);
+    display: flex; /* Para centrar contenido */
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    /* Añadido para posicionar las flechas */
-    position: fixed; /* Asegura que el lightbox ocupe toda la pantalla */
+    flex-direction: column; /* La imagen y caption se apilan */
 }
 
 .lightbox img {
     max-width: 90%;
     max-height: 80%;
     border-radius: 10px;
-    /* Ajuste para que la imagen no choque con las flechas en móvil */
-    padding: 0 40px; /* Deja espacio para las flechas a los lados */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho/alto */
+    padding: 0 40px; /* Espacio para las flechas */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    object-fit: contain; /* Para que la imagen se ajuste dentro del espacio con el padding */
 }
 
 .lightbox .close {
@@ -94,7 +94,7 @@ body {
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
-    z-index: 100; /* Asegura que esté por encima de todo */
+    z-index: 100;
 }
 
 #lightbox-caption {
@@ -102,7 +102,7 @@ body {
     margin-top: 1rem;
     font-size: 1.2rem;
     text-align: center;
-    padding: 0 20px; /* Para que el texto no se pegue a los bordes en móvil */
+    padding: 0 20px;
 }
 
 /* Estilos para las flechas de navegación */
@@ -110,17 +110,16 @@ body {
     cursor: pointer;
     position: absolute;
     top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente de forma más moderna */
     width: auto;
     padding: 16px;
-    margin-top: -22px;
     color: white;
     font-weight: bold;
     font-size: 30px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0,0,0,0.5);
-    z-index: 100; /* Asegura que estén por encima de la imagen */
+    z-index: 100;
 }
 
 .next {
@@ -130,7 +129,7 @@ body {
 
 .prev {
     left: 0;
-    border-radius: 0 3px 3px 0; /* Aseguramos que el left tenga el borde redondeado correcto */
+    border-radius: 0 3px 3px 0;
 }
 
 .prev:hover, .next:hover {
@@ -145,7 +144,7 @@ header {
     align-items: center;
     background: #780021;
     padding: 1rem 2rem;
-    position: sticky;
+    position: sticky; /* Sticky es mejor que fixed para headers que scrollan con el contenido */
     top: 0;
     z-index: 10;
 }
@@ -206,35 +205,34 @@ footer p {
 /* Responsive para móvil */
 @media (max-width: 768px) {
     .menu ul {
-        display: none;
+        display: none; /* Oculto por defecto en móvil */
         flex-direction: column;
         width: 100%;
         background-color: #520216;
         margin-top: 1rem;
+        position: absolute; /* Para que el menú se despliegue debajo del header */
+        top: 100%;
+        left: 0;
     }
 
-    .menu ul.hidden {
-        display: none;
-    }
-
-    .menu ul.show {
+    .menu ul.show { /* Clase que se añade con JS para mostrar el menú */
         display: flex;
     }
 
     .menu-toggle {
-        display: block;
+        display: block; /* Muestra el botón hamburguesa */
     }
 
     /* Ajustes para lightbox en móvil */
     .lightbox img {
         max-width: 95%; /* Un poco más de ancho en móvil */
         max-height: 70%; /* Menos altura para dejar espacio al caption */
-        padding: 0 20px; /* Menos padding para flechas */
+        padding: 0 10px; /* Menos padding para flechas */
     }
 
     .prev, .next {
         font-size: 24px; /* Flechas un poco más pequeñas */
-        padding: 12px;
+        padding: 8px; /* Menos padding en flechas */
     }
 
     .lightbox .close {
