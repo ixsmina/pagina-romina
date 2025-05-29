@@ -31,14 +31,14 @@
         <h1 class="lyrics-main-title">Mis Letras Favoritas</h1>
         <div class="song-selection-container">
             <div class="song-card" data-song-id="black-beauty">
-                <img src="images/bla.jpg" alt="Portada Black Beauty - Honeymoon">
+                <img src="images/bla.jpg" alt="Portada Black Beauty - Ultraviolence">
                 <div class="song-info">
                     <h3>Black Beauty</h3>
                     <p class="album-year">Álbum: Ultraviolence (2014)</p>
                     <p class="description">Una balada melancólica que explora la belleza de la tristeza y la lucha por entender a un amante. Una joya escondida para muchos fans.</p>
                 </div>
-                <button class="play-button" aria-label="Reproducir Black Beauty">
-                    <i class="fas fa-play"></i> Reproducir
+                <button class="view-details-button" aria-label="Ver detalles de Black Beauty">
+                    <i class="fas fa-info-circle"></i> Ver Detalles
                 </button>
             </div>
 
@@ -49,27 +49,37 @@
                     <p class="album-year">Álbum: Honeymoon (2015)</p>
                     <p class="description">Un tema sensual y oscuro que captura la esencia de la vida bohemia en California, invitando a vivir sin ataduras y a abrazar la locura del amor.</p>
                 </div>
-                <button class="play-button" aria-label="Reproducir Freak">
-                    <i class="fas fa-play"></i> Reproducir
+                <button class="view-details-button" aria-label="Ver detalles de Freak">
+                    <i class="fas fa-info-circle"></i> Ver Detalles
                 </button>
             </div>
-        </div>
+            </div>
     </main>
 
-    <div id="lyrics-display-modal" class="lyrics-modal">
-        <span class="close-lyrics-modal">&times;</span> <div class="lyrics-content-wrapper">
-            <div id="current-song-background" class="lyrics-background-image"></div>
-            
-            <div class="lyrics-animation-container">
-                <img id="typewriter-png" src="images/eskir.png" alt="Máquina de escribir" class="typewriter-png">
-                <video id="lyrics-video" class="lyrics-story-video" muted playsinline></video>
+    <div id="lyrics-modal" class="lyrics-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="song-detail-view" class="song-detail-view">
+                <h2 id="modal-song-title"></h2>
+                <p id="modal-album-year"></p>
+                <p id="modal-description"></p>
+                <button id="play-lyrics-button" class="play-button">
+                    <i class="fas fa-play"></i> Escuchar Letra
+                </button>
             </div>
 
-            <audio id="lyrics-audio" preload="auto"></audio> 
+            <div id="lyrics-player-view" class="lyrics-player-view hidden">
+                <div id="current-song-background" class="lyrics-background-image"></div>
+                <div class="lyrics-animation-container">
+                    <video id="lyrics-video" class="lyrics-story-video" muted playsinline></video>
+                    <img id="typewriter-png" src="images/eskir.png" alt="Máquina de escribir" class="typewriter-png">
+                </div>
+                <audio id="lyrics-audio" preload="auto"></audio>
+            </div>
         </div>
     </div>
 
-    <script src="js/gal.js" defer></script> 
-    <script src="js/let.js" defer></script> 
+    <script src="js/gal.js" defer></script>
+    <script src="js/let.js" defer></script>
 </body>
 </html>
