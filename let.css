@@ -1,9 +1,13 @@
-/* Estilos específicos para la página de Letras */
+/* --- Estilos específicos para la página de Letras (let.html) --- */
 .lyrics-page-content {
     padding: 3rem 2rem;
     text-align: center;
     background-color: transparent; /* Permite ver el fondo del body */
     color: #fff;
+    min-height: 80vh; /* Para que el contenido tenga altura mínima */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .lyrics-main-title {
@@ -19,6 +23,8 @@
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 3rem;
+    max-width: 1200px; /* Limita el ancho del contenedor de tarjetas */
+    width: 100%;
 }
 
 .song-card {
@@ -26,11 +32,14 @@
     background-color: rgba(120, 0, 33, 0.7); /* Tu color guinda semitransparente */
     border-radius: 15px;
     padding: 1.5rem;
-    width: 280px; /* Ancho fijo para las tarjetas */
+    width: 300px; /* Ancho fijo para las tarjetas */
     text-align: center;
-    cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el espacio */
 }
 
 .song-card:hover {
@@ -48,43 +57,62 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+.song-info {
+    flex-grow: 1; /* Permite que la información ocupe el espacio disponible */
+    margin-bottom: 1rem;
+}
+
 .song-card h3 {
     color: #fdfcf7;
-    font-size: 1.4rem;
-    margin: 0;
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.song-card .album-year {
+    color: #f4b6c2; /* Un tono más claro para el álbum/año */
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.song-card .description {
+    color: #e0e0e0; /* Un gris claro para la descripción */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    min-height: 60px; /* Altura mínima para la descripción */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Estilos para el botón de Play */
 .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: #fdfcf7;
     border: 2px solid #fdfcf7;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 25px; /* Bordes más suaves para un botón con texto */
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    opacity: 0; /* Oculto por defecto */
-    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-    z-index: 5; /* Asegura que esté sobre la imagen */
-}
-
-.song-card:hover .play-button {
-    opacity: 1; /* Se muestra al hacer hover sobre la tarjeta */
-    transform: translate(-50%, -50%) scale(1.1); /* Ligeramente más grande al mostrarse */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem; /* Espacio arriba del botón */
 }
 
 .play-button:hover {
     background-color: rgba(120, 0, 33, 0.9); /* Guinda al pasar el ratón por el botón */
-    transform: translate(-50%, -50%) scale(1.2); /* Más grande al pasar el ratón */
+    border-color: #f4b6c2;
+    transform: translateY(-2px);
 }
+
+.play-button i {
+    font-size: 1.2rem;
+}
+
 
 /* --- Estilos del Modal de Letras (Oculto por defecto) --- */
 .lyrics-modal {
@@ -101,16 +129,15 @@
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box; /* Incluye padding en el tamaño */
-    animation: fadeIn 0.3s ease-out; /* Animación de aparición */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    opacity: 0; /* Para la animación de aparición */
+    visibility: hidden; /* Oculto para lectores de pantalla */
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out; /* Animación de aparición */
 }
 
 .lyrics-modal.show {
-    display: flex; /* Se muestra con JavaScript */
+    opacity: 1; /* Se muestra con JavaScript */
+    visibility: visible;
+    display: flex; /* Asegura que flexbox funcione con la transición */
 }
 
 .close-lyrics-modal {
@@ -121,11 +148,12 @@
     font-size: 3rem;
     cursor: pointer;
     z-index: 101; /* Por encima del contenido del modal */
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .close-lyrics-modal:hover {
     color: #f4b6c2; /* Color de hover */
+    transform: rotate(90deg); /* Pequeña animación */
 }
 
 .lyrics-content-wrapper {
@@ -141,6 +169,14 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    transform: translateY(20px); /* Para la animación de aparición */
+    opacity: 0; /* Para la animación de aparición */
+    transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s; /* Retraso para que aparezca después del fondo */
+}
+
+.lyrics-modal.show .lyrics-content-wrapper {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .lyrics-background-image {
@@ -189,7 +225,7 @@
     transform: translate(-50%, -50%); /* Ajuste fino de centrado */
 }
 
-/* Responsive para móvil */
+/* --- Responsive para móvil --- */
 @media (max-width: 768px) {
     .lyrics-main-title {
         font-size: 2rem;
@@ -201,8 +237,8 @@
     }
 
     .song-card {
-        width: 90%; /* Ocupa casi todo el ancho en móvil */
-        max-width: 300px; /* Para que no se haga enorme en tablets */
+        width: 90%;
+        max-width: 350px; /* Ligeramente más grande en móvil para mejor legibilidad */
         padding: 1rem;
     }
 
@@ -211,7 +247,16 @@
     }
 
     .song-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    .song-card .album-year, .song-card .description {
+        font-size: 0.85rem;
+    }
+
+    .play-button {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
     }
 
     .lyrics-modal {
@@ -226,14 +271,14 @@
 
     .lyrics-content-wrapper {
         width: 95%;
-        height: 80vh; /* Permite más espacio en pantallas pequeñas */
+        height: 85vh; /* Más altura en pantallas pequeñas */
     }
 
     .typewriter-png {
-        width: 90%; /* Más grande en móvil */
+        width: 90%;
     }
 
     .lyrics-story-video {
-        width: 95%; /* Más grande en móvil */
+        width: 95%;
     }
 }
