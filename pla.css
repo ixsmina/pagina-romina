@@ -28,7 +28,6 @@ body::before {
 }
 /* --- Fin del overlay --- */
 
-/* El resto de tu CSS sigue igual... */
 
 .gallery-section {
     padding: 2rem;
@@ -36,4 +35,237 @@ body::before {
     color: #fff;
 }
 
-/* ... y así sucesivamente con el resto de tu código CSS */
+.gallery-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #520216;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(120, 0, 33, 0.75);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+    opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none; /* ¡Esta es la línea que debe quedar! El JS la cambia a flex. */
+    position: fixed; /* Ocupa toda la ventana */
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    /* display: flex; <-- ¡ESTA LÍNEA SE ELIMINÓ EN LA VERSIÓN ANTERIOR! */
+    justify-content: center; /* Estas propiedades de flexbox se aplicarán cuando el JS ponga display: flex; */
+    align-items: center;
+    flex-direction: column; /* La imagen y caption se apilan */
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    padding: 0 40px; /* Espacio para las flechas */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+    object-fit: contain; /* Para que la imagen se ajuste dentro del espacio con el padding */
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#lightbox-caption {
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Estilos para las flechas de navegación */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente de forma más moderna */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(120, 0, 33, 0.8); /* Guinda oscuro para hover */
+}
+
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #780021;
+    padding: 1rem 2rem;
+    position: sticky; /* Sticky es mejor que fixed para headers que scrollan con el contenido */
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fdfcf7;
+    text-shadow: 0 0 10px #fff;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.menu a {
+    color: #fdfcf7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #f4b6c2;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+footer {
+    background: #520216;
+    color: #fff;
+    padding: 2rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+footer h3 {
+    margin-bottom: 0.5rem;
+    color: #fdfcf7;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .menu ul {
+        display: none; /* Oculto por defecto en móvil */
+        flex-direction: column;
+        width: 100%;
+        background-color: #520216;
+        margin-top: 1rem;
+        position: absolute; /* Para que el menú se despliegue debajo del header */
+        top: 100%;
+        left: 0;
+    }
+
+    .menu ul.show { /* Clase que se añade con JS para mostrar el menú */
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+    }
+
+    /* Ajustes para lightbox en móvil */
+    .lightbox img {
+        max-width: 95%; /* Un poco más de ancho en móvil */
+        max-height: 70%; /* Menos altura para dejar espacio al caption */
+        padding: 0 10px; /* Menos padding para flechas */
+    }
+
+    .prev, .next {
+        font-size: 24px; /* Flechas un poco más pequeñas */
+        padding: 8px; /* Menos padding en flechas */
+    }
+
+    .lightbox .close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.8rem;
+    }
+
+    #lightbox-caption {
+        font-size: 1rem;
+    }
+}
