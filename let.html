@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lana Del Rey - Letras</title>
+    <title>Lana Del Rey - Letras Favoritas</title>
     <link rel="stylesheet" href="css/gal.css">
     <link rel="stylesheet" href="css/let.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -31,14 +31,27 @@
         <h1 class="lyrics-main-title">Mis Letras Favoritas</h1>
         <div class="song-selection-container">
             <div class="song-card" data-song-id="black-beauty">
-                <img src="images/bla.jpg" alt="Portada Black Beauty">
-                <h3>Black Beauty</h3>
-                <button class="play-button" aria-label="Reproducir Black Beauty"><i class="fas fa-play"></i></button>
+                <img src="images/bla.jpg" alt="Portada Black Beauty - Honeymoon">
+                <div class="song-info">
+                    <h3>Black Beauty</h3>
+                    <p class="album-year">Álbum: Ultraviolence (2014)</p>
+                    <p class="description">Una balada melancólica que explora la belleza de la tristeza y la lucha por entender a un amante. Una joya escondida para muchos fans.</p>
+                </div>
+                <button class="play-button" aria-label="Reproducir Black Beauty">
+                    <i class="fas fa-play"></i> Reproducir
+                </button>
             </div>
+
             <div class="song-card" data-song-id="freak">
-                <img src="images/fre.jpg" alt="Portada Freak">
-                <h3>Freak</h3>
-                <button class="play-button" aria-label="Reproducir Freak"><i class="fas fa-play"></i></button>
+                <img src="images/fre.jpg" alt="Portada Freak - Honeymoon">
+                <div class="song-info">
+                    <h3>Freak</h3>
+                    <p class="album-year">Álbum: Honeymoon (2015)</p>
+                    <p class="description">Un tema sensual y oscuro que captura la esencia de la vida bohemia en California, invitando a vivir sin ataduras y a abrazar la locura del amor.</p>
+                </div>
+                <button class="play-button" aria-label="Reproducir Freak">
+                    <i class="fas fa-play"></i> Reproducir
+                </button>
             </div>
         </div>
     </main>
@@ -46,7 +59,7 @@
     <div id="lyrics-display-modal" class="lyrics-modal">
         <span class="close-lyrics-modal">&times;</span> <div class="lyrics-content-wrapper">
             <div id="current-song-background" class="lyrics-background-image"></div>
-
+            
             <div class="lyrics-animation-container">
                 <img id="typewriter-png" src="images/eskir.png" alt="Máquina de escribir" class="typewriter-png">
                 <video id="lyrics-video" class="lyrics-story-video" muted playsinline></video>
@@ -56,7 +69,7 @@
         </div>
     </div>
 
-    <script src="js/gal.js" defer></script>
+    <script src="js/gal.js" defer></script> 
     <script src="js/let.js" defer></script> 
 </body>
 </html>
