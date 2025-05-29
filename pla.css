@@ -238,19 +238,30 @@ footer p {
     align-items: center;
 }
 
+/* --- Título "Descubre mas sobre ella" con borde guinda --- */
 .social-title {
     font-size: 2.8rem;
     margin-bottom: 1.5rem;
-    color: #520216; /* Tu color guinda */
+    color: #520216; /* Color guinda para el texto */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border: 3px solid #520216; /* Borde del mismo color guinda */
+    padding: 0.8rem 1.5rem; /* Espaciado dentro del borde */
+    display: inline-block; /* Para que el borde solo abarque el texto */
+    border-radius: 10px; /* Bordes ligeramente redondeados */
+    background-color: rgba(0, 0, 0, 0.3); /* Un fondo sutil para que el borde resalte más */
 }
 
+/* --- Párrafo introductorio con borde guinda --- */
 .social-intro {
     font-size: 1.2rem;
     max-width: 700px;
     margin-bottom: 3rem;
     line-height: 1.6;
-    color: #ccc;
+    color: #ccc; /* Color de texto más claro para el párrafo */
+    border: 1px solid #520216; /* Borde guinda más delgado */
+    padding: 1rem 1.5rem; /* Espaciado dentro del borde */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo sutil */
 }
 
 .social-links-container {
