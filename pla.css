@@ -1,2 +1,145 @@
-/* jquery.scrolly v1.0.0-dev | (c) @ajlkn | MIT licensed */
-(function(e){function u(s,o){var u,a,f;if((u=e(s))[t]==0)return n;a=u[i]()[r];switch(o.anchor){case"middle":f=a-(e(window).height()-u.outerHeight())/2;break;default:case r:f=Math.max(a,0)}return typeof o[i]=="function"?f-=o[i]():f-=o[i],f}var t="length",n=null,r="top",i="offset",s="click.scrolly",o=e(window);e.fn.scrolly=function(i){var o,a,f,l,c=e(this);if(this[t]==0)return c;if(this[t]>1){for(o=0;o<this[t];o++)e(this[o]).scrolly(i);return c}l=n,f=c.attr("href");if(f.charAt(0)!="#"||f[t]<2)return c;a=jQuery.extend({anchor:r,easing:"swing",offset:0,parent:e("body,html"),pollOnce:!1,speed:1e3},i),a.pollOnce&&(l=u(f,a)),c.off(s).on(s,function(e){var t=l!==n?l:u(f,a);t!==n&&(e.preventDefault(),a.parent.stop().animate({scrollTop:t},a.speed,a.easing))})}})(jQuery);
+/* Estilos específicos para la sección de Redes Sociales */
+.social-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: transparent; /* Mantenemos el fondo negro general del body */
+    color: #fff;
+    min-height: calc(100vh - 100px); /* Ajusta si tu header/footer tienen diferente altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-title {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #520216; /* Tu color guinda */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-intro {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 2rem; /* Espacio entre los íconos */
+    max-width: 900px;
+    width: 100%;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    min-width: 140px; /* Ancho mínimo para cada botón */
+}
+
+.social-link i {
+    font-size: 3.5rem; /* Tamaño grande para los íconos */
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.social-link span {
+    display: block; /* Asegura que el texto esté en su propia línea */
+}
+
+/* Colores específicos de hover para cada red social */
+.social-link.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.social-link.instagram:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.youtube {
+    background-color: #FF0000;
+}
+.social-link.youtube:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #cc0000;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.spotify {
+    background-color: #1DB954;
+}
+.social-link.spotify:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #158e3f;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Estilos para redes sociales adicionales */
+.social-link.twitter { /* Para el nuevo ícono de X/Twitter */
+    background-color: #000000;
+    color: #fff;
+}
+.social-link.twitter:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #333333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.apple-music {
+    background-color: #FC3C44;
+}
+.social-link.apple-music:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #d13238;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .social-title {
+        font-size: 2.2rem;
+    }
+
+    .social-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .social-links-container {
+        gap: 1rem; /* Menos espacio entre íconos en móviles */
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces apilados */
+    }
+
+    .social-link {
+        width: 80%; /* Ocupa más ancho en móvil */
+        min-width: unset; /* Quita el ancho mínimo para que se ajuste mejor */
+        padding: 0.8rem 1rem;
+    }
+
+    .social-link i {
+        font-size: 2.5rem; /* Íconos un poco más pequeños */
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-link {
+        width: 95%; /* Casi todo el ancho para pantallas muy pequeñas */
+    }
+}
