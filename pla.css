@@ -4,18 +4,16 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-    /* --- Agregado para la imagen de fondo --- */
-    background-image: url('images/pla.jpg'); /* Ruta a tu imagen */
+    /* --- Estilos para la imagen de fondo --- */
+    background-image: url('images/pla.jpg'); /* ¡Ruta a tu imagen! */
     background-size: cover; /* La imagen cubrirá todo el fondo */
     background-position: center center; /* Centra la imagen */
     background-attachment: fixed; /* La imagen se queda fija al hacer scroll */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    /* --- Fin de la adición --- */
+    /* --- Fin de la imagen de fondo --- */
 }
 
-/* --- Agregado para el overlay semitransparente --- */
-/* Esta es una técnica común para poner una capa sobre la imagen de fondo
-   y mejorar la legibilidad del texto */
+/* --- Overlay semitransparente para mejor legibilidad --- */
 body::before {
     content: '';
     position: fixed;
@@ -23,12 +21,13 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Negro semitransparente (ajusta el 0.5 para más/menos transparencia) */
-    z-index: -1; /* Asegura que esté detrás del contenido, pero encima de la imagen de fondo */
+    background: rgba(0, 0, 0, 0.5); /* Negro semitransparente (0.5 = 50% opacidad) */
+    z-index: -1; /* Detrás del contenido, pero encima de la imagen de fondo */
 }
 /* --- Fin del overlay --- */
 
 
+/* --- Estilos de la galería --- */
 .gallery-section {
     padding: 2rem;
     background-color: transparent; /* Ahora el body tiene la imagen, esta sección es transparente */
@@ -86,9 +85,9 @@ body::before {
     opacity: 1;
 }
 
-/* Lightbox */
+/* --- Estilos del Lightbox (carrusel) --- */
 .lightbox {
-    display: none; /* ¡Esta es la línea que debe quedar! El JS la cambia a flex. */
+    display: none; /* Inicia OCULTO, el JS lo muestra a "flex" */
     position: fixed; /* Ocupa toda la ventana */
     z-index: 99;
     top: 0;
@@ -96,8 +95,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.9);
-    /* display: flex; <-- ¡ESTA LÍNEA SE ELIMINÓ EN LA VERSIÓN ANTERIOR! */
-    justify-content: center; /* Estas propiedades de flexbox se aplicarán cuando el JS ponga display: flex; */
+    justify-content: center; /* Centra contenido cuando JS lo activa */
     align-items: center;
     flex-direction: column; /* La imagen y caption se apilan */
 }
@@ -108,7 +106,7 @@ body::before {
     border-radius: 10px;
     padding: 0 40px; /* Espacio para las flechas */
     box-sizing: border-box; /* Incluye padding en el ancho */
-    object-fit: contain; /* Para que la imagen se ajuste dentro del espacio con el padding */
+    object-fit: contain; /* Para que la imagen se ajuste dentro del espacio */
 }
 
 .lightbox .close {
@@ -129,12 +127,12 @@ body::before {
     padding: 0 20px;
 }
 
-/* Estilos para las flechas de navegación */
+/* Estilos para las flechas de navegación del carrusel */
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Centra verticalmente de forma más moderna */
+    transform: translateY(-50%); /* Centra verticalmente */
     width: auto;
     padding: 16px;
     color: white;
@@ -161,14 +159,14 @@ body::before {
 }
 
 
-/* Encabezado */
+/* --- Estilos del encabezado --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #780021;
     padding: 1rem 2rem;
-    position: sticky; /* Sticky es mejor que fixed para headers que scrollan con el contenido */
+    position: sticky; /* Se pega al top al hacer scroll */
     top: 0;
     z-index: 10;
 }
@@ -204,6 +202,7 @@ header {
     font-size: 1.5rem;
 }
 
+/* --- Estilos del pie de página --- */
 footer {
     background: #520216;
     color: #fff;
@@ -226,7 +225,117 @@ footer p {
     margin: 0.3rem 0;
 }
 
-/* Responsive para móvil */
+/* --- Estilos específicos de la sección de Redes Sociales --- */
+.social-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: transparent; /* Mantiene el fondo de la imagen del body */
+    color: #fff;
+    min-height: calc(100vh - 100px); /* Ajusta si tu header/footer tienen diferente altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-title {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #520216; /* Tu color guinda */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-intro {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+    justify-content: center;
+    gap: 2rem; /* Espacio entre los íconos */
+    max-width: 900px;
+    width: 100%;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    min-width: 140px; /* Ancho mínimo para cada botón */
+}
+
+.social-link i {
+    font-size: 3.5rem; /* Tamaño grande para los íconos */
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.social-link span {
+    display: block; /* Asegura que el texto esté en su propia línea */
+}
+
+/* Colores específicos de hover para cada red social */
+.social-link.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.social-link.instagram:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.youtube {
+    background-color: #FF0000;
+}
+.social-link.youtube:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #cc0000;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.spotify {
+    background-color: #1DB954;
+}
+.social-link.spotify:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #158e3f;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Estilos para redes sociales adicionales */
+.social-link.twitter { /* Para el nuevo ícono de X/Twitter */
+    background-color: #000000;
+    color: #fff;
+}
+.social-link.twitter:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #333333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.social-link.apple-music {
+    background-color: #FC3C44;
+}
+.social-link.apple-music:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #d13238;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+
+/* --- Responsive para móvil --- */
 @media (max-width: 768px) {
     .menu ul {
         display: none; /* Oculto por defecto en móvil */
@@ -267,5 +376,39 @@ footer p {
 
     #lightbox-caption {
         font-size: 1rem;
+    }
+
+    /* Responsive para la sección de Redes Sociales en móviles */
+    .social-title {
+        font-size: 2.2rem;
+    }
+
+    .social-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .social-links-container {
+        gap: 1rem; /* Menos espacio entre íconos en móviles */
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces apilados */
+    }
+
+    .social-link {
+        width: 80%; /* Ocupa más ancho en móvil */
+        min-width: unset; /* Quita el ancho mínimo para que se ajuste mejor */
+        padding: 0.8rem 1rem;
+    }
+
+    .social-link i {
+        font-size: 2.5rem; /* Íconos un poco más pequeños */
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-link {
+        width: 95%; /* Casi todo el ancho para pantallas muy pequeñas */
     }
 }
