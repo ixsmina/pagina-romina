@@ -1,16 +1,18 @@
-// Menú hamburguesa en móvilMore actions
+// Menú hamburguesa en móvil
+const toggle = document.getElementById('menu-toggle');
 const menuToggle = document.getElementById('menu-toggle');
 const menu = document.getElementById('menu');
 
+toggle.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
 if (menuToggle && menu) {
     menuToggle.addEventListener('click', () => {
         menu.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar con CSS
         
-
         // Cambiar el icono del botón y el atributo aria-expanded
         if (menu.classList.contains('show')) {
             menuToggle.innerHTML = '&times;'; // Icono de cerrar (X)
-            menuToggle.innerHTML = '×'; // Icono de cerrar (X)
             menuToggle.setAttribute('aria-expanded', 'true');
         } else {
             menuToggle.innerHTML = '☰'; // Icono de hamburguesa
@@ -19,21 +21,20 @@ if (menuToggle && menu) {
     });
 }
 
+// Mostrar u ocultar la lista de canciones
 // Mostrar u ocultar la lista de canciones con animación
 function toggleAlbum(id) {
+  const list = document.getElementById(id);
+  list.classList.toggle('hidden');
     const list = document.getElementById(id);
     if (list) {
         // Alternar la clase 'show' para controlar la animación con CSS (max-height)
-        // La clase 'show' controla la propiedad max-height en CSS para la animación
         list.classList.toggle('show');
         
-
         // Opcional: Cerrar otras listas si solo quieres una abierta a la vez
         if (list.classList.contains('show')) {
             document.querySelectorAll('.album-list.show').forEach(open_list => {
                 if (open_list !== list) { // No cerrar la que acabamos de abrir
-                // Asegúrate de que no estás cerrando la lista que acabas de abrir
-                if (open_list.id !== id) {
                     open_list.classList.remove('show');
                 }
             });
@@ -59,10 +60,6 @@ function openLightbox(src, alt) {
         // A veces es necesario si se pasa de display: none a opacity: 1
         void lightbox.offsetWidth; 
 
-        // Asegúrate de que el lightbox no tenga display:none si se le aplica 'hidden'
-        // Lo mostramos primero y luego añadimos la clase 'show' para la transición
-        lightbox.classList.remove('hidden'); // Esto es crucial si 'hidden' lo pone en display:none
-        void lightbox.offsetWidth; // Forzar un reflow para que la transición de opacidad funcione
         lightbox.classList.add('show');
         body.style.overflow = 'hidden'; // Evitar scroll del fondo
     } else {
@@ -78,13 +75,10 @@ function closeLightbox() {
         lightbox.addEventListener('transitionend', function handleTransition() {
             if (!lightbox.classList.contains('show')) { // Solo si sigue oculto
                 lightbox.classList.add('hidden');
-            if (!lightbox.classList.contains('show')) { // Solo si ya no tiene la clase 'show'
-                lightbox.classList.add('hidden'); // Ahora sí podemos ocultarlo con display:none
             }
             lightbox.removeEventListener('transitionend', handleTransition); // Limpiar listener
         }, { once: true }); // El listener se ejecuta una sola vez
         
-
         body.style.overflow = ''; // Restaurar scroll del fondo
     }
 }
@@ -105,3 +99,7 @@ if (lightbox) {
         }
     });
 }
+
+// Asegúrate de que los IDs de las listas de canciones en HTML (ej: id="born")
+// coincidan con los que se pasan a toggleAlbum() en los botones onclick.
+// (Ya hemos corregido el de "Did You Know..." a "didyouknow" en el HTML).
