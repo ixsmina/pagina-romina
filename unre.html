@@ -1,12 +1,31 @@
-<!DOCTYPE html>More actions
+<!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unreleased - LDR </title>
+  <link rel="stylesheet" href="unre.css"/>
+  <script defer src="unre.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Unreleased - LDR</title>
     <link rel="stylesheet" href="alb.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<body bgcolor="#85eff7">
+
+<header>
+  <div class="logo">Lana Del Rey</div>
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+  <nav class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="alb.html">Albums</a></li>
+      <li><a href="unre.html" class="active">Unreleased</a></li>
+      <li><a href="gal.html">Galería</a></li>
+      <li><a href="pla.html">Plataformas</a></li>
+    </ul>
+  </nav>
 <body> <header>
     <div class="logo">Lana Del Rey</div>
     <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
@@ -22,12 +41,26 @@
 </header>
 
 <main>
+  <h1 class="titulo-albumes">Albums ineditos</h1>
     <h1 class="titulo-albumes">Canciones ineditas</h1>
 
+  <!-- Álbum: Born to Die -->
+ <main>
+    <section id="unreleased">
+    <h2>Unreleased</h2>
+    <div class="album">
+        <img src="images/akak.jpg" alt="A.K.A" class="album-img">
+        <a href="https://youtube.com/playlist?list=PLB4XcmtlYjDzqW3aJWIz1HjMSnj1SNobQ&si=lsPHskWEUpP0qsvj">A.K.A</a>
+    </div>
+    <div class="album">
+        <img src="images/america.jpg" alt="Miss America" class="album-img">
+        <a href="https://youtu.be/BvvPg8hniZE?si=uDYv9mvbKMFvfxSR">Miss America</a>
     <div id="lightbox" class="lightbox-container hidden">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="#" alt="Imagen ampliada">
     </div>
+</section>
+    <script src="unre.js"></script>
 
     <section class="album">
         <div class="album-image-container">
@@ -58,9 +91,6 @@
             <a href="https://www.youtube.com/playlist?list=PLB4XcmtlYjDzqW3aJWIz1HjMSnj1SNobQ">
                 <i class="fab fa-spotify"></i> Escuchar
             </a>
-           <a href="https://www.youtube.com/playlist?list=PLB4XcmtlYjDzqW3aJWIz1HjMSnj1SNobQ" target="_blank" class="album-btn youtube-btn">
-    <i class="fab fa-youtube"></i> Escuchar en YouTube
-</a>
         </div>
     </section>
 
@@ -81,15 +111,12 @@
             <a href="https://www.youtube.com/watch?v=BvvPg8hniZE">
                 <i class="fab fa-spotify"></i> Escuchar
             </a>
-          <a href="https://www.youtube.com/watch?v=BvvPg8hniZE" target="_blank" class="album-btn youtube-btn">
-    <i class="fab fa-youtube"></i> Escuchar en YouTube
-</a>
         </div>
     </section>
 
 
 </main>
-More actions
+
 <script src="unre.js"></script>
 </body>
 </html>
