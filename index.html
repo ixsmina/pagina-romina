@@ -1,65 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fanpage LDR</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fanpage LDR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">Lana Del Rey</div>
-    <nav class="menu">
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="alb.html"><i class="fas fa-music"></i> Albums</a></li>
-        <li><a href="unre.html"><i class="fas fa-film"></i> Unreleased</a></li>
-        <li><a href="gal.html"><i class="fas fa-image"></i> Galería</a></li>
-        <li><a href="pla.html"><i class="fas fa-envelope"></i> Plataformas</a></li>
-      </ul>
-      <div class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">Lana Del Rey</div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="alb.html"><i class="fas fa-music"></i> Albums</a></li>
+                <li><a href="unre.html"><i class="fas fa-film"></i> Unreleased</a></li>
+                <li><a href="gal.html"><i class="fas fa-image"></i> Galería</a></li>
+                <li><a href="pla.html"><i class="fas fa-envelope"></i> Plataformas</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-  <section id="inicio" class="slider">
-    <div class="slide active" style="background-image: url('images/sli1.jpg');">
-      <h2>Lana Del Rey</h2>
-      <p>Elizabeth Woolridge Grant es una cantautora estadounidense. Su música es conocida por su melancólica exploración del glamour y el romance.</p>
-    </div>
-    <div class="slide" style="background-image: url('images/sli2.jpg');">
-      <h2>Descubre su carrera</h2>
-      <p>Albums, canciones inéditas, imágenes, rarezas y más.</p>
-    </div>
-    <div class="slide" style="background-image: url('images/sli3.jpg');">
-      <h2>Con amor para Lana</h2>
-      <p>Un tributo visual y sonoro a una artista única.</p>
-    </div>
-    <div class="controls">
-      <button id="prev"><i class="fas fa-chevron-left"></i></button>
-      <button id="next"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  </section>
+    <section id="inicio" class="slider">
+        <div class="slide active" style="background-image: url('images/sli1.jpg');">
+            <h2>Lana Del Rey</h2>
+            <p>Elizabeth Woolridge Grant es una cantautora estadounidense. Su música es conocida por su melancólica exploración del glamour y el romance.</p>
+        </div>
+        <div class="slide" style="background-image: url('images/sli2.jpg');">
+            <h2>Descubre su carrera</h2>
+            <p>Albums, canciones inéditas, imágenes, rarezas y más.</p>
+        </div>
+        <div class="slide" style="background-image: url('images/sli3.jpg');">
+            <h2>Con amor para Lana</h2>
+            <p>Un tributo visual y sonoro a una artista única.</p>
+        </div>
+        <div class="controls">
+            <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            <button id="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
 
-  <footer id="contacto">
-    <div class="footer-container">
-      <div>
-        <h3>Secciones</h3>
-        <p>Inicio</p>
-        <p>Albums</p>
-        <p>Unreleased</p>
-        <p>Galería</p>
-      </div>
-      <div>
-        <h3>Dedicatoria:</h3>
-        <p>Con cariño a Elizabeth Woolridge Grant</p>
-      </div>
-    </div>
-  </footer>
+    <section class="info-cards-section">
+        <h2 class="section-title">Explora el Universo de Lana Del Rey</h2>
+        <div class="info-cards-grid">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-career.jpg" alt="Lana Del Rey en sus inicios" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>De Lizzy Grant a Lana Del Rey</h3>
+                            <p>Conoce los orígenes de su viaje musical, desde sus inicios hasta el ícono que es hoy.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>De Lizzy Grant a Lana Del Rey</h3>
+                            <p>Elizabeth Woolridge Grant dio sus primeros pasos en la música bajo su nombre real, tocando en clubes de Nueva York. Su transición a Lana Del Rey marcó un cambio estilístico y temático, adoptando una estética retro y letras melancólicas que exploran el glamour, el romance y la tragedia americana. Este cambio de identidad artística fue clave para su ascenso a la fama y la creación de su distintivo universo musical.</p>
+                            <a href="#" class="card-link"><i class="fas fa-info-circle"></i> Más detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-favsongs.jpg" alt="Micrófono vintage" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Mis Joyas Personales</h3>
+                            <p>Sumérgete en el significado de mis 3 canciones favoritas de Lana.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>Mis Joyas Personales</h3>
+                            <p>Aquí hablaré de mis tres canciones favoritas de Lana Del Rey: "Video Games", "Born to Die" y "Young and Beautiful". "Video Games" fue mi puerta de entrada a su universo, con una melancolía que me atrapó. "Born to Die" encapsula su esencia con una producción cinematográfica y letras audaces. Finalmente, "Young and Beautiful" me toca por su vulnerabilidad y el anhelo por la permanencia del amor. Son himnos a la fragilidad y la fuerza de los sentimientos.</p>
+                            <a href="#" class="card-link"><i class="fas fa-heart"></i> Leer mis razones</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-iconic.jpg" alt="Born to Die portada" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>Tras la Melodía: Éxitos con Alma</h3>
+                            <p>Explora el trasfondo de los temas más famosos de Lana Del Rey.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>Tras la Melodía: Éxitos con Alma</h3>
+                            <p>"Video Games" surgió de la observación de la relación de su entonces novio con los videojuegos y la dinámica de su amor. "Summertime Sadness", a pesar de su título melancólico, habla de la nostalgia por un amor de verano y se convirtió en un éxito inesperado gracias a un remix. Estas canciones capturaron la esencia de la melancolía y el romance que caracterizan su obra.</p>
+                            <a href="#" class="card-link"><i class="fas fa-lightbulb"></i> Descubre más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-ultraviolence.jpg" alt="Ultraviolence álbum" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>"Ultraviolence": Belleza y Rebeldía</h3>
+                            <p>Un análisis profundo del aclamado álbum de 2014.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>"Ultraviolence": Belleza y Rebeldía</h3>
+                            <p>"Ultraviolence" profundiza en temas de sumisión, relaciones turbulentas y una estética más oscura con influencias del rock de los 60 y 70. Producido en gran parte por Dan Auerbach de The Black Keys, el álbum se distingue por su sonido crudo y bluesy. Canciones como la homónima y "West Coast" exploran la complejidad del amor y el poder, marcando una evolución en su sonido y líricas hacia una paleta más sombría y visceral, consolidando su estatus como una artista que no teme explorar el lado más oscuro del alma.</p>
+                            <a href="alb.html#ultraviolence" class="card-link"><i class="fas fa-compact-disc"></i> Leer más sobre el álbum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-borntodie.jpg" alt="Born to Die álbum" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>"Born to Die": El Legado Inmortal</h3>
+                            <p>El álbum que definió una era y la lanzó al estrellato global.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>"Born to Die": El Legado Inmortal</h3>
+                            <p>"Born to Die" presentó al mundo el personaje de "gángster Nancy Sinatra" de Lana Del Rey, con himnos sobre el amor trágico, la fama y la decadencia americana. Lanzado en 2012, este álbum catapultó a Lana al estrellato global, definiendo su estética vintage, su sonido cinematográfico y sus letras evocadoras que resonaron con una audiencia masiva. Estableció un estándar para la música pop con influencias barrocas, hip-hop y un toque melancólico inconfundible.</p>
+                            <a href="alb.html#borntodie" class="card-link"><i class="fas fa-compact-disc"></i> Más sobre el impacto del álbum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-image-container">
+                            <img src="images/card-facts.jpg" alt="Lana Del Rey pensativa" class="card-img">
+                        </div>
+                        <div class="card-content">
+                            <h3>¿Sabías que...? Curiosidades Fascinantes</h3>
+                            <p>Anécdotas poco conocidas y detalles únicos que te sorprenderán.</p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card-back-content">
+                            <h3>¿Sabías que...? Curiosidades Fascinantes</h3>
+                            <p>Lana Del Rey es conocida por sus fuertes influencias literarias, citando a poetas como Walt Whitman y Allen Ginsberg como inspiración. Originalmente se llamaba a sí misma "Sparkle Jump Rope Queen" en sus inicios musicales. Además, ha dirigido algunos de sus propios videos musicales, como "Video Games", "Blue Jeans" y "Ride", mostrando su visión artística integral más allá de la música.</p>
+                            <a href="#" class="card-link"><i class="fas fa-question-circle"></i> Aún más datos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-container">
+            <div>
+                <h3>Secciones</h3>
+                <p>Inicio</p>
+                <p>Albums</p>
+                <p>Unreleased</p>
+                <p>Galería</p>
+            </div>
+            <div>
+                <h3>Dedicatoria:</h3>
+                <p>Con cariño a Elizabeth Woolridge Grant</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
