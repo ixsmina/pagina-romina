@@ -1,187 +1,482 @@
-/* Reset básico */
+/* Reset básico y variables CSS para consistencia */
+:root {
+    --primary-color: #780021; /* Guinda oscuro */
+    --secondary-color: #ffb3c6; /* Rosa pálido */
+    --text-light: #e0e0e0; /* Gris claro para texto (para elementos oscuros) */
+    --text-dark: #333; /* Gris oscuro para texto (para elementos claros) */
+    --text-lighter: #fdfcf7; /* Blanco hueso */
+    --bg-light: #fdfcf7; /* Fondo claro para la página principal */
+    --card-bg-light: #fff; /* Fondo claro para las tarjetas informativas */
+    --shadow-color-light: rgba(0, 0, 0, 0.15); /* Sombra suave */
+    --link-color: #780021; /* Color de enlace para tarjetas */
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Georgia', serif;
-  background-color: #fdfcf7;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Georgia', serif;
+    background-color: var(--bg-light); /* Usamos variable para el fondo claro */
+    color: var(--text-dark); /* Color de texto para fondo claro */
+    line-height: 1.6;
 }
 
 /* Encabezado */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #780021;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para header */
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #fdfcf7;
-  text-shadow: 0 0 10px #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-lighter);
+    text-shadow: 0 0 10px #fff;
 }
 
 .menu ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
 }
 
 .menu a {
-  color: #fdfcf7;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+    color: var(--text-lighter);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre icono y texto */
 }
 
 .menu a:hover {
-  color: #f4b6c2;
+    color: var(--secondary-color);
 }
 
 .menu-toggle {
-  display: none;
-  cursor: pointer;
-  color: #fff;
-  font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+    color: var(--text-lighter);
+    font-size: 1.5rem;
 }
 
 /* Slider */
 .slider {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
 }
 
 .slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease;
-  padding: 2rem;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    padding: 2rem;
 }
 
 .slide.active {
-  opacity: 1;
-  z-index: 1;
+    opacity: 1;
+    z-index: 1;
 }
 
 .slide::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
 }
 
 .slide h2,
 .slide p {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
 }
 
 .slide h2 {
-  font-size: 2.5rem;
-  color: #fdfcf7;
-  text-shadow: 0 0 10px #780021;
+    font-size: 2.5rem;
+    color: var(--text-lighter);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 .slide p {
-  font-size: 1.2rem;
-  color: #f0e8df;
+    font-size: 1.2rem;
+    color: #f0e8df;
 }
 
 /* Botones del slider */
 .controls {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  transform: translateY(-50%);
-  z-index: 2;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    transform: translateY(-50%);
+    z-index: 2;
 }
 
 .controls button {
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  color: #780021;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: background 0.3s;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: var(--primary-color);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background 0.3s;
 }
 
 .controls button:hover {
-  background: #780021;
-  color: #fff;
+    background: var(--primary-color);
+    color: #fff;
 }
+
+/* --- Nueva Sección de Tarjetas Informativas --- */
+.info-cards-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px rgba(120, 0, 33, 0.3);
+    letter-spacing: 1px;
+}
+
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Estilos para el contenedor de la flip card */
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    height: 450px; /* Altura fija para que todas las tarjetas sean consistentes */
+}
+
+.flip-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el inner que contiene el frente y la parte trasera */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Mantiene la perspectiva 3D */
+    cursor: pointer;
+}
+
+/* Estilos para el frente y la parte trasera de la tarjeta */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Oculta la parte trasera cuando no está activa */
+    backface-visibility: hidden;
+    background-color: var(--card-bg-light);
+    color: var(--text-dark);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px var(--shadow-color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px; /* Espacio para el enlace/contenido en la parte inferior */
+}
+
+/* Estilos específicos para el frente */
+.flip-card-front {
+    z-index: 2; /* Asegura que esté encima inicialmente */
+}
+
+.flip-card-front .card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 15px 15px 0 0;
+}
+
+.flip-card-front .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.flip-card-front .card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido hacia arriba */
+}
+
+.flip-card-front .card-content h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.flip-card-front .card-content p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* Estilos para la parte trasera de la tarjeta */
+.flip-card-back {
+    transform: rotateY(180deg); /* Inicialmente volteada hacia atrás */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido hacia arriba */
+    padding: 25px;
+}
+
+.flip-card-back .card-back-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia el título, párrafo y botón */
+    height: 100%;
+}
+
+.flip-card-back .card-back-content h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.flip-card-back .card-back-content p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+    padding-right: 5px; /* Espacio para la barra de scroll */
+}
+
+.card-link {
+    background-color: var(--primary-color);
+    color: var(--text-lighter);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    align-self: center; /* Centra el enlace horizontalmente */
+    margin-top: 15px; /* Espacio encima del enlace */
+}
+
+.card-link:hover {
+    background-color: #a0002d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Estilo para el efecto de volteo al hacer clic --- */
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
 
 /* Footer */
 footer {
-  background: #520216;
-  color: #fff;
-  padding: 2rem;
+    background: #520216;
+    color: #fff;
+    padding: 2rem;
+    margin-top: 50px; /* Espacio antes del footer */
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 footer h3 {
-  margin-bottom: 0.5rem;
-  color: #fdfcf7;
+    margin-bottom: 0.8rem;
+    color: var(--text-lighter);
+    font-size: 1.4rem;
 }
 
 footer p {
-  margin: 0.3rem 0;
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column;
-    display: none;
-    background: #780021;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    padding: 1rem;
-  }
+    header {
+        padding: 0.8rem 1.5rem;
+    }
+    .logo {
+        font-size: 1.6rem;
+    }
+    .menu ul {
+        flex-direction: column;
+        display: none;
+        background: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
 
-  .menu ul.active {
-    display: flex;
-  }
+    .menu ul.active {
+        display: flex;
+    }
 
-  .menu-toggle {
-    display: block;
-  }
+    .menu-toggle {
+        display: block;
+    }
+
+    .slide h2 {
+        font-size: 2rem;
+    }
+
+    .slide p {
+        font-size: 1rem;
+    }
+
+    .controls {
+        padding: 0 1rem;
+    }
+
+    .controls button {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .info-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .flip-card {
+        height: 420px; /* Ajuste de altura en tablet */
+    }
+
+    .flip-card-front .card-content h3,
+    .flip-card-back .card-back-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .flip-card-front .card-content p,
+    .flip-card-back .card-back-content p {
+        font-size: 0.9rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.6rem 1rem;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+    .menu-toggle {
+        font-size: 1.3rem;
+    }
+    .slide h2 {
+        font-size: 1.8rem;
+    }
+    .slide p {
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .info-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .flip-card {
+        height: 400px; /* Ajuste de altura en móvil pequeño */
+    }
+    .flip-card-front .card-image-container {
+        height: 180px;
+    }
+    .flip-card-front .card-content,
+    .flip-card-back .card-back-content {
+        padding: 20px;
+    }
+    .flip-card-front .card-content h3,
+    .flip-card-back .card-back-content h3 {
+        font-size: 1.2rem;
+    }
+    .card-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 }
