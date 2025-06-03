@@ -193,7 +193,40 @@
                 <p>Con cariño a Elizabeth Woolridge Grant</p>
             </div>
         </div>
-    </footer>
+         <button id="open-contact-form-btn" class="contact-form-trigger-btn">
+        <i class="fas fa-envelope"></i> Envíame un Mensaje
+    </button>
+</div>
+</footer>
 
+<div id="contact-form-modal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact-modal" id="close-contact-modal-btn">&times;</span> <h2>Contáctame</h2>
+        <p>Envíame un mensaje y te responderé lo antes posible.</p>
+
+        <form id="contact-form" action="https://formsubmit.co/pariselihusotogomez@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="contact-name">Nombre Completo:</label>
+                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Tu Nombre Completo" required>
+            </div>
+            <div class="form-group">
+                <label for="contact-email">Tu Email:</label>
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="direccion@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="contact-subject">Asunto (opcional):</label>
+                <input type="text" id="contact-subject" name="_subject" class="form-control" placeholder="Ej: Pregunta sobre la página">
+            </div>
+            <div class="form-group">
+                <label for="contact-message">Tu Mensaje:</label>
+                <textarea id="contact-message" name="message" class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+
+            <input type="hidden" name="_next" value="https://tupagina.com/gracias.html"> <input type="hidden" name="_captcha" value="false"> <input type="hidden" name="_template" value="box"> <button type="submit" class="submit-button">Enviar Mensaje</button>
+        </form>
+    </div>
+</div>
+    </footer>
+<script src="script.js"></script>
 </body>
 </html>
