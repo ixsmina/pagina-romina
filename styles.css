@@ -5,9 +5,13 @@
     --text-light: #e0e0e0; /* Gris claro para texto (para elementos oscuros) */
     --text-dark: #333; /* Gris oscuro para texto (para elementos claros) */
     --text-lighter: #fdfcf7; /* Blanco hueso */
-    --bg-light: #fdfcf7; /* Fondo claro para la página principal */
-    --card-bg-light: #fff; /* Fondo claro para las tarjetas informativas */
-    --shadow-color-light: rgba(0, 0, 0, 0.15); /* Sombra suave */
+    
+    /* Variables para el fondo y las tarjetas, ajustadas para el brillo */
+    --bg-light: #000000; /* Fondo NEGRO */
+    --card-bg-light: #fff; /* Fondo de tarjetas ahora es BLANCO */
+    --shadow-color-light: rgba(0, 0, 0, 0.15); /* Sombra estándar para tarjetas blancas */
+    --guinda-glow: rgba(120, 0, 33, 0.8); /* Nuevo color para el brillo guinda (guinda primary con opacidad) */
+
     --link-color: #780021; /* Color de enlace para tarjetas */
 }
 
@@ -19,8 +23,8 @@
 
 body {
     font-family: 'Georgia', serif;
-    background-color: var(--bg-light); /* Usamos variable para el fondo claro */
-    color: var(--text-dark); /* Color de texto para fondo claro */
+    background-color: var(--bg-light); /* Fondo NEGRO */
+    color: var(--text-lighter); /* Color de texto para el fondo negro ahora es blanco hueso */
     line-height: 1.6;
 }
 
@@ -163,12 +167,12 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background-color: var(--bg-light);
+    background-color: var(--bg-light); /* Fondo de la sección NEGRO */
 }
 
 .section-title {
     font-size: 2.8rem;
-    color: var(--primary-color);
+    color: var(--text-lighter); /* Título de sección BLANCO HUESO */
     margin-bottom: 50px;
     text-shadow: 0 0 10px rgba(120, 0, 33, 0.3);
     letter-spacing: 1px;
@@ -190,6 +194,8 @@ header {
     transform: translateY(30px);
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     height: 450px; /* Altura fija para que todas las tarjetas sean consistentes */
+    /* Añadir transición para el box-shadow aquí para un efecto suave */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out, box-shadow 0.3s ease-in-out;
 }
 
 .flip-card.show {
@@ -214,16 +220,26 @@ header {
     height: 100%;
     -webkit-backface-visibility: hidden; /* Oculta la parte trasera cuando no está activa */
     backface-visibility: hidden;
-    background-color: var(--card-bg-light);
-    color: var(--text-dark);
+    background-color: var(--card-bg-light); /* Fondo de tarjetas BLANCO */
+    color: var(--text-dark); /* Texto de tarjetas GRIS OSCURO */
     border-radius: 15px;
-    box-shadow: 0 6px 20px var(--shadow-color-light);
+    box-shadow: 0 6px 20px var(--shadow-color-light); /* Sombra estándar */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-bottom: 20px; /* Espacio para el enlace/contenido en la parte inferior */
 }
+
+/* --- EFECTO DE BRILLO GUINDA EN LAS TARJETAS --- */
+/* Aplicar el brillo cuando el mouse está sobre la tarjeta o cuando está "flippeada" */
+.flip-card:hover,
+.flip-card-inner.is-flipped .flip-card-front, /* Cuando el frente está volteado */
+.flip-card-inner.is-flipped .flip-card-back { /* Cuando el dorso está volteado */
+    box-shadow: 0 0 15px 5px var(--guinda-glow), /* Sombra exterior como brillo */
+                0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra base para profundidad */
+}
+
 
 /* Estilos específicos para el frente */
 .flip-card-front {
@@ -234,7 +250,7 @@ header {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Borde claro para fondo de tarjeta blanco */
     border-radius: 15px 15px 0 0;
 }
 
@@ -256,7 +272,7 @@ header {
 
 .flip-card-front .card-content h3 {
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Título de tarjeta GUINDA OSCURO */
     margin-bottom: 15px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -264,7 +280,7 @@ header {
 
 .flip-card-front .card-content p {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--text-dark); /* Texto de párrafo en tarjeta GRIS OSCURO */
     line-height: 1.7;
 }
 
@@ -287,7 +303,7 @@ header {
 
 .flip-card-back .card-back-content h3 {
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Título de tarjeta GUINDA OSCURO */
     margin-bottom: 15px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -295,7 +311,7 @@ header {
 
 .flip-card-back .card-back-content p {
     font-size: 0.95rem;
-    color: var(--text-dark);
+    color: var(--text-dark); /* Texto de párrafo en tarjeta GRIS OSCURO */
     line-height: 1.7;
     margin-bottom: 20px;
     overflow-y: auto; /* Permite scroll si el contenido es muy largo */
@@ -320,13 +336,13 @@ header {
 }
 
 .card-link:hover {
-    background-color: #a0002d;
+    background-color: #a0002d; /* Guinda un poco más oscuro al pasar el mouse */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* --- Estilo para el efecto de volteo al hacer clic --- */
-.flip-card.is-flipped .flip-card-inner {
+/* --- ESTILO CORREGIDO PARA EL EFECTO DE VOLTEO AL HACER CLIC --- */
+.flip-card-inner.is-flipped {
     transform: rotateY(180deg);
 }
 
@@ -334,7 +350,7 @@ header {
 /* Footer */
 footer {
     background: #520216;
-    color: #fff;
+    color: var(--text-lighter); /* Texto del footer BLANCO HUESO */
     padding: 2rem;
     margin-top: 50px; /* Espacio antes del footer */
 }
