@@ -32,7 +32,7 @@ body {
     /* Asegúrate de que 'images/flechita.png' sea la ruta correcta a tu imagen */
     /* '8 8' son las coordenadas del hotspot (punto activo), ajústalas si tu imagen no es de 16x16px */
     /* 'auto' es el cursor de respaldo si la imagen no carga */
-    cursor: url('images/flechita.png') 8 8, auto; 
+    cursor: url('images/flechita.jpg') 8 8, auto; 
 }
 
 /* Opcional: Mantener el "dedito" (pointer) para los elementos clicables */
