@@ -27,7 +27,20 @@ body {
     background-color: var(--bg-page); /* Usamos el gris muy oscuro */
     color: var(--text-lighter); /* Color de texto para el fondo oscuro */
     line-height: 1.6;
+
+    /* --- CAMBIO PARA EL CURSOR: LA FLORECITA --- */
+    /* Asegúrate de que 'images/flechita.png' sea la ruta correcta a tu imagen */
+    /* '8 8' son las coordenadas del hotspot (punto activo), ajústalas si tu imagen no es de 16x16px */
+    /* 'auto' es el cursor de respaldo si la imagen no carga */
+    cursor: url('images/flechita.png') 8 8, auto; 
 }
+
+/* Opcional: Mantener el "dedito" (pointer) para los elementos clicables */
+/* Esto mejora la experiencia del usuario, ya que indica que algo es interactivo */
+a, button, .flip-card-inner {
+    cursor: pointer;
+}
+
 
 /* Encabezado */
 header {
@@ -211,7 +224,7 @@ header {
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d; /* Mantiene la perspectiva 3D */
-    cursor: pointer;
+    /* El cursor 'pointer' para .flip-card-inner ya está en el body para elementos interactivos */
 }
 
 /* Estilos para el frente y la parte trasera de la tarjeta */
