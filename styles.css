@@ -6,11 +6,12 @@
     --text-dark: #333; /* Gris oscuro para texto (para elementos claros) */
     --text-lighter: #fdfcf7; /* Blanco hueso */
     
-    /* Variables para el fondo y las tarjetas, ajustadas para el brillo */
-    --bg-light: #000000; /* Fondo NEGRO */
-    --card-bg-light: #fff; /* Fondo de tarjetas ahora es BLANCO */
-    --shadow-color-light: rgba(0, 0, 0, 0.15); /* Sombra estándar para tarjetas blancas */
-    --guinda-glow: rgba(120, 0, 33, 0.8); /* Nuevo color para el brillo guinda (guinda primary con opacidad) */
+    /* --- CAMBIOS AQUI --- */
+    --bg-page: #1a1a1a; /* Fondo de la página: Negro tirando a gris */
+    --bg-cards: #f5e6cc; /* Fondo de las tarjetas: Tono champagne */
+    --shadow-color-light: rgba(0, 0, 0, 0.15); /* Sombra estándar para tarjetas claras */
+    --guinda-glow: rgba(120, 0, 33, 0.8); /* Color para el brillo guinda con opacidad */
+    /* --- FIN CAMBIOS --- */
 
     --link-color: #780021; /* Color de enlace para tarjetas */
 }
@@ -23,8 +24,8 @@
 
 body {
     font-family: 'Georgia', serif;
-    background-color: var(--bg-light); /* Fondo NEGRO */
-    color: var(--text-lighter); /* Color de texto para el fondo negro ahora es blanco hueso */
+    background-color: var(--bg-page); /* Usamos el nuevo gris oscuro */
+    color: var(--text-lighter); /* Color de texto para el fondo oscuro */
     line-height: 1.6;
 }
 
@@ -167,12 +168,12 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background-color: var(--bg-light); /* Fondo de la sección NEGRO */
+    background-color: var(--bg-page); /* Fondo de la sección también gris oscuro */
 }
 
 .section-title {
     font-size: 2.8rem;
-    color: var(--text-lighter); /* Título de sección BLANCO HUESO */
+    color: var(--text-lighter); /* Título de sección blanco hueso */
     margin-bottom: 50px;
     text-shadow: 0 0 10px rgba(120, 0, 33, 0.3);
     letter-spacing: 1px;
@@ -220,9 +221,9 @@ header {
     height: 100%;
     -webkit-backface-visibility: hidden; /* Oculta la parte trasera cuando no está activa */
     backface-visibility: hidden;
-    background-color: var(--card-bg-light); /* Fondo de tarjetas BLANCO */
-    color: var(--text-dark); /* Texto de tarjetas GRIS OSCURO */
-    border-radius: 15px;
+    background-color: var(--bg-cards); /* Fondo de tarjetas: Tono champagne */
+    color: var(--text-dark); /* Texto de tarjetas: Gris oscuro */
+    border-radius: 15px; /* Bordes redondeados para la tarjeta */
     box-shadow: 0 6px 20px var(--shadow-color-light); /* Sombra estándar */
     display: flex;
     flex-direction: column;
@@ -238,6 +239,7 @@ header {
 .flip-card-inner.is-flipped .flip-card-back { /* Cuando el dorso está volteado */
     box-shadow: 0 0 15px 5px var(--guinda-glow), /* Sombra exterior como brillo */
                 0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra base para profundidad */
+    border-radius: 15px; /* Asegura que el brillo también respete los bordes redondeados */
 }
 
 
@@ -250,8 +252,8 @@ header {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Borde claro para fondo de tarjeta blanco */
-    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Borde claro para fondo de tarjeta champagne */
+    border-radius: 15px 15px 0 0; /* Bordes superiores redondeados */
 }
 
 .flip-card-front .card-img {
