@@ -92,7 +92,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// Nota: La función toggleAlbum que tenías previamente en este archivo
-// ha sido eliminada, ya que su funcionalidad es exclusiva de unre.js.
-// Asegúrate de que tu unre.js contenga la lógica de toggleAlbum si la necesitas allí.
