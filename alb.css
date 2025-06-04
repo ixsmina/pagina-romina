@@ -118,111 +118,105 @@ main {
     letter-spacing: 2px;
 }
 
-/* Grid de álbumes modificado para ser más compacto */
+/* Grid de álbumes para 3 columnas en pantallas grandes */
 .albums-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Más "cuadritos", más pequeños */
-    gap: 20px; /* Menos espacio entre tarjetas */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    gap: 30px; /* Espacio entre tarjetas */
     justify-content: center;
-    align-items: stretch; /* Mantiene la altura de los items en una fila */
-    padding: 15px; /* Padding alrededor del grid */
+    align-items: stretch;
+    padding: 15px;
 }
 
-/* Estructura de cada álbum modificada */
+/* Estructura de cada álbum */
 .album {
     display: flex;
     flex-direction: column;
     background-color: var(--card-bg);
-    border-radius: 12px; /* Ligeramente menos redondeado */
-    box-shadow: 0 6px 20px var(--shadow-color); /* Sombra ajustada */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-color);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Considera descomentar si te gusta el efecto y el rendimiento es bueno */
-    /* backdrop-filter: blur(3px); */
-    /* -webkit-backdrop-filter: blur(3px); */
 }
 
 .album:hover {
-    transform: translateY(-8px) scale(1.03); /* Efecto hover sutil */
+    transform: translateY(-8px) scale(1.03);
     box-shadow: 0 12px 30px rgba(82, 2, 22, 0.6);
-    background-color: rgba(35, 35, 35, 0.95); /* Fondo de hover ligeramente diferente */
+    background-color: rgba(35, 35, 35, 0.95);
 }
 
 .album-image-container {
     width: 100%;
-    height: 220px; /* Altura ajustada para un look más cuadrado (similar al minmax width) */
+    padding-top: 100%; /* Crea un contenedor cuadrado (aspect-ratio 1:1) */
+    position: relative;
     overflow: hidden;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .album-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 12px 12px 0 0; /* Redondeo solo superior, coincide con .album */
+    border-radius: 12px 12px 0 0;
     transition: transform 0.4s ease, filter 0.4s ease;
     cursor: pointer;
 }
 
 .album-img:hover {
-    transform: scale(1.08); /* Zoom sutil en hover */
-    filter: brightness(1.15) saturate(1.05); /* Efecto de brillo/saturación sutil */
+    transform: scale(1.08);
+    filter: brightness(1.15) saturate(1.05);
 }
 
 .album-content {
-    padding: 15px; /* Padding reducido para compactar */
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Contenido alineado a la izquierda por defecto */
-    flex-grow: 1; /* Para que el contenido llene el espacio vertical si es necesario */
-    /* Si prefieres el contenido centrado en cada "cuadrito": */
-    /* align-items: center;  */
-    /* text-align: center; */
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
 .album-content h2 {
     color: var(--secondary-color);
-    font-size: 1.6rem; /* Tamaño de fuente ajustado */
-    margin-bottom: 10px; /* Menos espacio inferior */
-    letter-spacing: 0.5px; /* Menos espaciado entre letras */
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
     font-weight: 700;
-    /* Si centras el contenido, puedes necesitar ajustar el ancho del título: */
-    /* width: 100%; */
 }
 
-/* Botones modificados para compactibilidad */
+/* Botones */
 .album-btn, .spotify-btn {
     background-color: var(--primary-color);
     color: var(--text-lighter);
     border: none;
-    padding: 10px 18px; /* Padding ajustado */
-    border-radius: 25px; /* Un poco menos redondeado */
+    padding: 10px 18px;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* Menos espacio entre icono y texto */
-    margin-bottom: 10px; /* Menos margen inferior */
+    gap: 8px;
+    margin-bottom: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25); /* Sombra ajustada */
-    align-self: flex-start; /* Alineados a la izquierda por defecto */
-    font-size: 0.95em; /* Fuente un poco más pequeña */
-    /* Si centras el contenido del álbum, centra también los botones: */
-    /* align-self: center; */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    align-self: flex-start;
+    font-size: 0.95em;
 }
 
 .album-btn:hover, .spotify-btn:hover {
     background-color: #a0002d;
     transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0,0,0,0.35); /* Sombra hover ajustada */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.35);
 }
 
 .spotify-btn {
     background-color: var(--spotify-green);
-    margin-top: 8px; /* Margen superior ajustado */
+    margin-top: 8px;
 }
 
 .spotify-btn:hover {
@@ -242,7 +236,7 @@ main {
 }
 
 .album-list.show {
-    max-height: 800px;
+    max-height: 800px; /* Suficientemente grande para contener todas las listas */
     opacity: 1;
 }
 
@@ -320,28 +314,10 @@ main {
     transform: rotate(90deg);
 }
 
-
-/* Media Queries para Responsividad (ajustadas para "cuadritos") */
-@media (max-width: 992px) {
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
     .albums-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-        gap: 15px;
-    }
-    .album-content {
-        align-items: center; 
-        text-align: center;
-        padding: 12px;
-    }
-    .album-content h2 {
-        font-size: 1.5rem;
-    }
-    .album-btn, .spotify-btn {
-        font-size: 0.9em;
-        padding: 8px 15px;
-        align-self: center; 
-    }
-    .album-image-container {
-         height: 200px; /* Coherente con el minmax de tablet */
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
     }
 }
 
@@ -356,7 +332,7 @@ main {
         font-size: 1.6rem;
     }
     .menu {
-        display: none;
+        display: none; /* Oculta el menú por defecto en móviles */
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -368,7 +344,7 @@ main {
         border-top: 1px solid rgba(253, 252, 247, 0.1);
     }
     .menu.show {
-        display: flex;
+        display: flex; /* Muestra el menú cuando tiene la clase 'show' */
     }
     .menu ul {
         flex-direction: column;
@@ -392,25 +368,31 @@ main {
         display: none;
     }
     .menu-toggle {
-        display: block;
+        display: block; /* Muestra el botón de hamburguesa */
     }
     .titulo-albumes {
-        font-size: 2rem; 
+        font-size: 2rem;
         margin-bottom: 30px;
     }
     .albums-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-        gap: 15px;
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        gap: 20px;
     }
     .album-image-container {
-        height: 180px; 
+        padding-top: 75%; /* Ajuste para imágenes rectangulares en móvil si lo deseas, o 100% para cuadrado */
+    }
+    .album-content {
+        align-items: center;
+        text-align: center;
+        padding: 12px;
     }
     .album-content h2 {
         font-size: 1.4rem;
     }
     .album-btn, .spotify-btn {
-        width: 85%; 
-        max-width: 300px; /* Para que no se estiren demasiado */
+        width: 85%;
+        max-width: 300px;
+        align-self: center;
     }
 }
 
@@ -425,12 +407,10 @@ main {
         font-size: 1.6rem;
     }
     .albums-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
-        gap: 15px;
-        padding: 10px; /* Menos padding en pantallas muy pequeñas */
+        padding: 10px;
     }
     .album-image-container {
-        height: 240px; /* Ajusta esta altura como prefieras para el modo de 1 columna */
+        padding-top: 100%; /* Mantiene las imágenes cuadradas en el modo de una columna */
     }
     .album-content {
         padding: 10px;
