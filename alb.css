@@ -1,252 +1,385 @@
 /* Reset básico */
+/* Reset básico y variables CSS */
+:root {
+    --primary-color: #780021; /* Guinda oscuro */
+    --secondary-color: #ffb3c6; /* Rosa pálido */
+    --text-light: #e0e0e0; /* Gris claro para texto */
+    --text-lighter: #fdfcf7; /* Blanco hueso */
+    --bg-dark: #0a0a0a; /* Negro profundo */
+    --card-bg: #1c1c1c; /* Gris oscuro para la tarjeta */
+    --shadow-color: rgba(82, 2, 22, 0.45);
+    --spotify-green: #1DB954;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
+@@ -8,43 +19,44 @@
 /* Fuente y fondo general */
 body {
     font-family: 'Georgia', serif;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
+    background-color: #0a0a0a; /* Negro profundo, como lo tenías */
+    color: #e0e0e0; /* Gris claro para texto, mejor contraste que blanco puro */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     line-height: 1.6;
     padding-top: 80px; /* Espacio para el header fijo */
+    transition: background-color 0.3s ease; /* Transición suave del fondo */
 }
 
 /* Encabezado */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #780021;
+    background: #780021; /* Guinda oscuro, como lo tenías */
+    background: var(--primary-color);
     padding: 1rem 2rem;
+    position: fixed; /* Header fijo en la parte superior */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra más pronunciada */
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fdfcf7;
+    color: #fdfcf7; /* Blanco hueso */
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    color: var(--text-lighter);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8); /* Sombra más brillante */
 }
 
 .menu ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    margin: 0; /* Reset de margen para ul */
     margin: 0;
 }
 
 .menu a {
     color: #fdfcf7;
+    color: var(--text-lighter);
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.menu a::after {
+@@ -56,247 +68,307 @@ header {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #f4b6c2;
+    background-color: #f4b6c2; /* Rosa pálido para el subrayado hover */
     transition: width 0.3s ease;
+    height: 3px; /* Más grueso */
+    bottom: -5px; /* Más abajo del texto */
+    left: 50%; /* Centrado inicialmente */
+    transform: translateX(-50%); /* Ajuste para centrar */
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
 }
 
 .menu a:hover,
 .menu a.active {
     color: #f4b6c2;
+    color: var(--secondary-color);
 }
 
 .menu a:hover::after,
 .menu a.active::after {
     width: 100%;
+    left: 0;
+    transform: translateX(0);
 }
 
 .menu-toggle {
+    display: none; /* Oculto por defecto, se muestra en móvil */
     display: none;
     background: none;
     border: none;
     color: #fdfcf7;
-    font-size: 2rem;
+    font-size: 2rem; /* Más grande para mejor interacción táctil */
+    color: var(--text-lighter);
+    font-size: 2.2rem; /* Un poco más grande */
     cursor: pointer;
+    padding: 0.5rem; /* Área de toque más grande */
     padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg); /* Animación al hacer hover */
 }
 
 /* Contenedor principal */
 main {
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1200px; /* Centrar contenido en pantallas grandes */
+    max-width: 1300px; /* Un poco más ancho */
     margin: 0 auto;
 }
 
 .titulo-albumes {
     text-align: center;
     font-size: 2.5rem;
-    color: #ffb3c6;
+    color: #ffb3c6; /* Rosa pálido, como en tu diseño original */
     margin-bottom: 40px;
     text-shadow: 0 0 10px rgba(255, 179, 198, 0.5);
+    font-size: 3rem; /* Más grande */
+    color: var(--secondary-color);
+    margin-bottom: 50px; /* Más espacio */
+    text-shadow: 0 0 15px rgba(255, 179, 198, 0.7); /* Sombra más intensa */
+    letter-spacing: 2px; /* Espaciado de letras */
+}
+
+/* Nuevo contenedor para el Grid de álbumes */
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 2 columnas en desktop, se ajustan */
+    gap: 40px; /* Más espacio entre tarjetas */
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
 }
 
 /* Estructura de cada álbum */
+/* Estructura de cada álbum (ahora más compacta y con Grid) */
 .album {
     display: flex;
-    flex-direction: row;
-    gap: 25px;
+    flex-direction: row; /* Imagen a la izquierda, contenido a la derecha */
+    gap: 25px; /* Espacio entre imagen y contenido */
     margin-bottom: 40px;
     padding: 25px;
-    background-color: #1c1c1c;
+    background-color: #1c1c1c; /* Gris oscuro para la tarjeta del álbum */
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(82, 2, 22, 0.45);
+    box-shadow: 0 4px 15px rgba(82, 2, 22, 0.45); /* Sombra más intensa con tu color guinda */
+    flex-direction: column; /* Apilado por defecto */
+    background-color: var(--card-bg);
+    border-radius: 15px; /* Más redondeado */
+    box-shadow: 0 8px 25px var(--shadow-color); /* Sombra más profunda */
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Borde sutil */
+    backdrop-filter: blur(3px); /* Efecto de cristal */
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.album:hover {
+    transform: translateY(-10px) scale(1.02); /* Levantar y crecer un poco */
+    box-shadow: 0 15px 40px rgba(82, 2, 22, 0.7); /* Sombra aún más pronunciada */
+    background-color: rgba(28, 28, 28, 0.9); /* Ligeramente más opaco al hover */
 }
 
 .album-image-container {
-    flex: 0 0 200px;
-    height: 200px;
+    flex: 0 0 200px; /* Ancho fijo para la imagen (no se encoge ni crece) */
+    height: 200px;   /* Alto fijo para mantener proporción cuadrada */
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Para que la imagen no se salga del borde redondeado */
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: 280px; /* Altura más grande */
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador sutil */
 }
 
 .album-img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* La imagen cubre el contenedor sin distorsionarse */
     object-fit: cover;
     display: block;
     border-radius: 8px;
     transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer; /* Indica que la imagen es clickeable (para el lightbox) */
+    border-radius: 15px 15px 0 0; /* Solo arriba redondeado */
+    transition: transform 0.5s ease, filter 0.5s ease;
     cursor: pointer;
 }
 
 .album-img:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+    transform: scale(1.05); /* Ligero zoom al pasar el mouse */
+    filter: brightness(1.1); /* Aumenta un poco el brillo */
+    transform: scale(1.1); /* Zoom más pronunciado al hover */
+    filter: brightness(1.2) saturate(1.1); /* Más brillo y saturación */
 }
 
 .album-content {
-    flex: 1;
+    flex: 1; /* El contenido toma el espacio restante */
+    padding: 25px; /* Más padding */
     display: flex;
+    flex-direction: column; /* Para alinear elementos verticalmente */
     flex-direction: column;
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+    flex-grow: 1; /* Permite que el contenido se estire */
 }
 
 .album-content h2 {
-    color: #ffb3c6;
+    color: #ffb3c6; /* Rosa pálido */
     font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-size: 2.2rem; /* Más grande */
     margin-bottom: 15px;
+    /* Opcional: font-family: 'Playfair Display', serif; para un toque más elegante */
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 /* Botones */
 .album-btn, .spotify-btn {
-    background-color: #780021;
+    background-color: #780021; /* Guinda oscuro de tu header */
     color: #fdfcf7;
+    background-color: var(--primary-color);
+    color: var(--text-lighter);
     border: none;
     padding: 12px 20px;
-    border-radius: 25px;
+    border-radius: 25px; /* Botones más redondeados */
+    padding: 14px 25px; /* Más padding */
+    border-radius: 30px; /* Más redondeados */
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none; /* Para el <a> de Spotify */
+    display: inline-flex; /* Para alinear icono y texto */
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Espacio entre icono y texto */
+    gap: 12px; /* Más espacio entre icono y texto */
     margin-bottom: 15px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    align-self: flex-start; /* Alinea los botones a la izquierda dentro de .album-content */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     align-self: flex-start;
+    font-size: 1.1em; /* Tamaño de fuente un poco más grande */
 }
 
 .album-btn:hover, .spotify-btn:hover {
-    background-color: #a0002d;
-    transform: translateY(-2px);
+    background-color: #a0002d; /* Guinda más claro al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
 }
 
 .album-btn i, .spotify-btn i {
-    font-size: 1.1em;
+    font-size: 1.1em; /* Tamaño del icono */
+    background-color: #a0002d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 .spotify-btn {
-    background-color: #1DB954;
+    background-color: #1DB954; /* Verde de Spotify */
+    margin-top: 10px; /* Espacio adicional si es necesario */
+    background-color: var(--spotify-green);
     margin-top: 10px;
 }
 
 .spotify-btn:hover {
+    background-color: #1aa34a; /* Verde más oscuro de Spotify */
     background-color: #1aa34a;
 }
 
 /* Lista de canciones */
-.album-list { /* <<<< ESTA ES LA CLAVE JUNTO CON EL HTML */
+.album-list {
+    list-style: none; /* Sin viñetas */
     list-style: none;
     padding-left: 0;
     margin-top: 10px;
-    max-height: 0; /* Inicialmente oculta y lista para animación */
+    max-height: 0; /* Inicialmente oculta para animación */
+    max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out; /* Transición suave para desplegar */
+    transition: max-height 0.7s ease-out, opacity 0.7s ease-out; /* Transición más suave y con opacidad */
+    opacity: 0;
+    width: 100%; /* Para que ocupe el ancho disponible */
 }
 
 .album-list.show { /* Clase que se añade con JS para mostrar */
     max-height: 600px; /* Ajusta según la lista más larga que tengas */
+.album-list.show {
+    max-height: 800px; /* Asegúrate que esto sea mayor que la lista más larga */
+    opacity: 1;
 }
 
 .album-list li {
     padding: 8px 5px;
-    border-bottom: 1px dashed #444;
-    color: #c0c0c0;
+    border-bottom: 1px dashed #444; /* Separador sutil */
+    color: #c0c0c0; /* Color de texto para las canciones */
     font-size: 0.95rem;
+    padding: 10px 0; /* Más padding vertical */
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2); /* Borde más suave */
+    color: var(--text-light);
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    transition: background-color 0.2s ease;
 }
 
 .album-list li:last-child {
     border-bottom: none;
+.album-list li:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil al pasar el mouse */
 }
 
-/* Clase 'hidden' (usada para lightbox y menú hamburguesa, NO para las listas de canciones inicialmente) */
+/* Clase 'hidden' para ocultar elementos (usada por JS para el lightbox y menú inicial) */
 .hidden {
     display: none !important;
+.album-list li:last-child {
+    border-bottom: none;
 }
 
 /* Lightbox CSS */
+/* Lightbox CSS (Manteniendo las mejoras que ya tenías) */
 .lightbox-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.88);
+    background-color: rgba(0, 0, 0, 0.88); /* Fondo oscuro semitransparente */
+    display: flex; /* Centrar la imagen */
+    background-color: rgba(0, 0, 0, 0.95); /* Fondo más oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2000; /* Por encima de todo */
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s; /* Transición para aparecer/desaparecer */
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 .lightbox-container.show {
     opacity: 1;
     visibility: visible;
+    transition-delay: 0s; /* Reset de delay para mostrar */
     transition-delay: 0s;
 }
 
 .lightbox-content {
     max-width: 85%;
     max-height: 85%;
+    max-width: 90%; /* Un poco más grande */
+    max-height: 90%;
     display: block;
     border-radius: 5px;
     box-shadow: 0 0 35px rgba(255,255,255,0.15);
     transform: scale(0.8);
     transition: transform 0.4s ease;
+    border-radius: 8px; /* Más redondeado */
+    box-shadow: 0 0 50px rgba(255,255,255,0.25); /* Sombra más grande y visible */
+    transform: scale(0.7); /* Comienza más pequeño */
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efecto de rebote */
 }
 
 .lightbox-container.show .lightbox-content {
+    transform: scale(1); /* Efecto de zoom al aparecer */
     transform: scale(1);
 }
 
@@ -255,120 +388,184 @@ main {
     top: 25px;
     right: 35px;
     font-size: 45px;
+    top: 20px;
+    right: 30px;
+    font-size: 50px; /* Más grande */
     color: #fff;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
 .lightbox-close:hover {
-    color: #ffb3c6;
+    color: #ffb3c6; /* Rosa pálido al pasar el mouse */
     transform: scale(1.1);
+    color: var(--secondary-color);
+    transform: rotate(90deg); /* Animación de rotación */
 }
 
+
 /* Media Queries para Responsividad */
-@media (max-width: 768px) {
-    body {
-        padding-top: 70px;
+
+/* Pantallas medianas y pequeñas (tablets y móviles) */
+@media (max-width: 992px) {
+    .albums-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mínimo más pequeño para tablets */
+        gap: 30px;
     }
-    header {
-        padding: 0.8rem 1.5rem;
-    }
-    .logo {
-        font-size: 1.6rem;
-    }
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #780021;
-        padding: 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        border-top: 1px solid rgba(253, 252, 247, 0.1);
-    }
-    .menu.show {
-        display: flex;
-    }
-    .menu ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-    }
-    .menu li {
-        width: 100%;
-        text-align: center;
-    }
-    .menu a {
-        display: block;
-        padding: 1rem;
-        border-bottom: 1px solid rgba(253, 252, 247, 0.1);
-    }
-    .menu li:last-child a {
-        border-bottom: none;
-    }
-    .menu a::after {
-        display: none;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .titulo-albumes {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
+
     .album {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Apilar imagen sobre contenido */
+        align-items: center; /* Centrar elementos apilados */
         padding: 20px;
     }
+
     .album-image-container {
-        flex-basis: auto;
-        width: 70%;
-        max-width: 280px;
-        height: auto;
-        margin-bottom: 20px;
+        height: 250px; /* Ajuste de altura */
     }
+
     .album-content {
-        align-items: center;
+        align-items: center; /* Centrar texto y botones dentro del contenido */
         text-align: center;
     }
     .album-content h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     .album-btn, .spotify-btn {
-        width: 80%;
-        max-width: 300px;
-        justify-content: center;
-        padding: 12px 15px;
+        font-size: 1em;
+        padding: 12px 20px;
         align-self: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Ajustar padding para header más compacto */
+        padding-top: 70px;
+    }
+
+    header {
+        padding: 0.8rem 1.5rem; /* Padding más ajustado en header */
+        padding: 0.8rem 1.5rem;
+    }
+
     .logo {
+        font-size: 1.6rem;
+    }
+
+    .menu {
+        display: none; /* Ocultar menú de navegación normal */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Justo debajo del header */
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #780021; /* Mismo color que el header */
+        padding: 0; /* Sin padding vertical, se maneja en los 'a' */
+        background-color: var(--primary-color);
+        padding: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(253, 252, 247, 0.1);
+    }
+
+    .menu.show { /* Clase para mostrar el menú en móvil */
+    .menu.show {
+        display: flex;
+    }
+
+@@ -320,47 +392,31 @@ main {
+        border-bottom: none;
+    }
+
+    .menu a::after { /* Ocultar efecto de subrayado en móvil */
+    .menu a::after {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar botón hamburguesa */
+        display: block;
+    }
+
+    .titulo-albumes {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .album {
+        flex-direction: column; /* Apilar imagen sobre contenido */
+        align-items: center; /* Centrar elementos apilados */
+        padding: 20px;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .album-image-container {
+        flex-basis: auto; /* Permitir que se ajuste */
+        width: 70%; /* Imagen ocupa un buen porcentaje pero no todo */
+        max-width: 280px; /* Un máximo para que no sea demasiado grande en tablets */
+        height: auto; /* Mantener proporción */
+        margin-bottom: 20px; /* Espacio entre imagen y contenido */
+    }
+
+    .album-content {
+        align-items: center; /* Centrar texto y botones dentro del contenido */
+        text-align: center;
+        height: 220px;
+    }
+    
+    .album-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .album-btn, .spotify-btn {
+        width: 80%; /* Hacer botones más anchos para fácil toque */
+        max-width: 300px; /* Pero no excesivamente anchos */
+        justify-content: center; /* Centrar contenido del botón (icono + texto) */
+        padding: 12px 15px;
+        align-self: center; /* Asegurar que se centren */
+        width: 90%; /* Hacer botones más anchos para fácil toque */
+        max-width: 350px;
+        justify-content: center;
+    }
+}
+
+@@ -370,24 +426,29 @@ main {
         font-size: 1.4rem;
     }
     .menu-toggle {
         font-size: 1.8rem;
+        font-size: 2rem;
     }
     .titulo-albumes {
         font-size: 1.8rem;
     }
+    .albums-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles pequeños */
+        gap: 25px;
+    }
     .album-image-container {
-        width: 85%;
+        width: 85%; /* Un poco más grande en móviles muy pequeños */
         max-width: 240px;
+        height: 180px;
     }
     .album-content h2 {
         font-size: 1.4rem;
     }
     .album-btn, .spotify-btn {
         width: 90%;
+        width: 95%;
+        padding: 10px 15px;
+        font-size: 0.95em;
     }
     .lightbox-close {
         font-size: 35px;
         top: 15px;
         right: 20px;
+        font-size: 40px;
+        top: 10px;
+        right: 15px;
     }
 }
