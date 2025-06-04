@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lightbox && lightboxImg) {
             lightboxImg.src = src;
             lightboxImg.alt = alt || "Imagen ampliada"; // Fallback para alt text
-            
+
             // Remueve hidden primero para que la transición de opacidad sea visible
-            lightbox.classList.remove('hidden'); 
+            lightbox.classList.remove('hidden');
             // Forzar un reflow para asegurar que la transición de opacidad se aplique
-            void lightbox.offsetWidth; 
-            
+            void lightbox.offsetWidth;
+
             lightbox.classList.add('show');
             body.style.overflow = 'hidden'; // Evitar scroll del fondo
         } else {
@@ -91,6 +91,39 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si el clic fue directamente sobre el contenedor (el fondo oscuro)
             if (event.target === lightbox) {
                 closeLightbox();
+            }
+        });
+    }
+
+    ---
+
+    // --- FUNCIONALIDAD PARA EL MODAL DE CONTACTO ---
+    // Seleccionar todos los botones que abren el modal
+    const openContactFormBtns = document.querySelectorAll('.contact-form-trigger-btn');
+    const contactFormModal = document.getElementById('contact-form-modal');
+    const closeContactModalBtn = document.getElementById('close-contact-modal-btn');
+
+    // Abrir el modal cuando se hace clic en CUALQUIERA de los botones
+    if (openContactFormBtns.length > 0 && contactFormModal) {
+        openContactFormBtns.forEach(button => {
+            button.addEventListener('click', () => {
+                contactFormModal.style.display = 'block';
+            });
+        });
+    }
+
+    // Cerrar el modal cuando se hace clic en la 'x'
+    if (closeContactModalBtn && contactFormModal) {
+        closeContactModalBtn.addEventListener('click', () => {
+            contactFormModal.style.display = 'none';
+        });
+    }
+
+    // Cerrar el modal haciendo clic fuera de su contenido
+    if (contactFormModal) {
+        window.addEventListener('click', (event) => {
+            if (event.target === contactFormModal) { // Usa === para una comparación estricta
+                contactFormModal.style.display = 'none';
             }
         });
     }
